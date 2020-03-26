@@ -1,0 +1,21 @@
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-cardiogram:before { content: "\f100"; }
+.flaticon-neurology:before { content: "\f101"; }
+.flaticon-stethoscope:before { content: "\f102"; }
+.flaticon-tooth:before { content: "\f103"; }
+.flaticon-vision:before { content: "\f104"; }
+.flaticon-ambulance:before { content: "\f105"; }
+.flaticon-la:before { content: "\f106"; }
