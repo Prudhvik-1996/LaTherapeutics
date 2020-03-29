@@ -268,6 +268,7 @@
     border: 3px solid #555;
     border-radius: 5px;
     width: 100%;
+    margin-top: 7px;
   }
 
   .address-info {
@@ -301,8 +302,6 @@
   }
 
   .products-row {
-    margin-top: 3%;
-    margin-bottom: 3%;
   }
 
   .card {
@@ -368,27 +367,105 @@
   }
 
   .product_name {
-    background-color: blue;
-    color: white;
-    font-size: 16px;
-    padding-left: 10px;
-    padding-right: 10px;
+    /*background-color: #220075;*/
+    background-color: yellow;
+    color: red;
+    font-size: 28px;
+    padding-left: 15px;
+    padding-right: 15px;
     padding-top: 3px;
     padding-bottom: 3px;
     border-radius: 10px;
+    text-align: center;
+  }
+
+  .img_desc {
+    /*background-color: #CAFA7D;*/
+    color: blue;
+    font-size: 28px;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+  }
+
+  .details-modal {
+    padding-top: 2px;
+  }
+
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    padding-bottom: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  /* Modal Content */
+  .modal-content {
+    /*background-image: url("/Users/prudhvikchirunomula/Desktop/MSIT_Tasks/La/LaTherapeutics/images/title_blur.png");*/
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 75%;
+    /*background-size: 100% 100%;*/
+    /*background-size: contain;*/
+
+  }
+
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
   }
 
   .product_composition {
-    background-color: white;
-    color: blue;
-    font-size: 12px;
-    height: 80px;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    border-radius: 5px;
-    /*padding-left: 10px;*/
-    /*padding-right: 10px;*/
+    /*padding-top: 5%;*/
   }
+
+  .product_btn {
+    width: 100%;
+    background-color: red;
+    border-color: red;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .contact-submit-btn {
+    background-color: black;
+    color: #D9D9D9;
+    border-radius: 15px;
+    border-color: #959594;
+    font-size: 24px;
+    margin-top: 25px;
+    float: right;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  /*.contact-screen-submit-btn {
+    float: right;
+  }*/
+
 </style>
 
 <script type="text/javascript">
@@ -397,16 +474,263 @@
     var h = window.outerHeight;
     if (w < h) {
       h = (9 / 16) * w;
+    } else {
+      w = w*0.7;
+      h = h*0.8;
+      var intro_screen = "<img src=\"https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/1_MAIN_PAGE.jpg\" style=\"width:"+w+"px; height:"+h+"px\">"
+      document.getElementById("intro-screen").innerHTML = intro_screen;
     }
-    w = w*0.7;
-    h = h*0.8;
-    var intro_screen = "<img src=\"https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/1_MAIN_PAGE.jpg\" style=\"width:"+w+"px; height:"+h+"px\">"
-    document.getElementById("intro-screen").innerHTML = intro_screen;
   }
+
+  window.onclick = function(event) {
+    var modal = document.getElementById("product_description");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  window.onmouseover = function(event) {
+    var modal = document.getElementById("product_description");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  function open_product_description_modal(id) {
+    var title = "";
+    var description = "";
+    var modal = document.getElementById("product_description");
+    var img = "";
+    var local_img_path = "/Users/prudhvikchirunomula/Desktop/MSIT_Tasks/La/LaTherapeutics/images/";
+    var url_img_path = "https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/";
+    switch (id) {
+      case "ABC_ZYME_DROPS":
+        img = "<img src='"+url_img_path+"ABC_ZYME_DROPS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:50%;'><br><br>";
+        title = "ABC ZYME Drops";
+        description = "Alpha Amylase (1:800) 20mg + Papain 10mg + Anise Oil 2mg + Dil Oil 2mg";
+        break;
+      case "AMNILARG":
+        img = "<img src='"+url_img_path+"AMNILARG.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:50%;'><br><br>";
+        title = "Amnilarg Satchets"
+        description = "L Arginine 3gm + Proanthocyanidins 75mg + Methylcobalamin 750mg + Zinc 10mg + Folic Acid 1.5mg";
+        break;
+      case "AMS_FAST_GEL":
+        img = "<img src='"+url_img_path+"AMS_FAST_GEL.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:100%;'><br><br>";
+        title = "AMS FAST GEL";
+        description = "Aluminium Hydroxide 250mg + Magnesium Hydroxide 250mg + Dimethicone 50mg + Sorbitol 1.2g";
+        break;
+      case "AP_DOL":
+        img = "<img src='"+url_img_path+"AP_DOL.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "AP DOL Tablets";
+        description = "Aceclofenac 100 mg + Paracetamol 325mg";
+        break;
+      case "CALCITRA_TAB":
+        img = "<img src='"+url_img_path+"CALCITRA_TAB.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "CALCITRA Tablets";;
+        description = "Calcium Citrate 1000mg + Vit D3 200 IU + Zinc 4mg, Magnesium 100mg";
+        break;
+      case "DELCOLD_DROPS":
+        img = "<img src='"+url_img_path+"DELCOLD_DROPS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:50%;'><br><br>";
+        title = "DELCOLD Drops";
+        description = "Phenylephrine hydrochloride 5mg + Chlorpheniramine maleate 2mg";
+        break;
+      case "DELCOLD_SYRUP":
+        img = "<img src='"+url_img_path+"DELCOLD_SYRUP.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:40%; height: 400px;'><br><br>";
+        title = "DELCOLD Syrup";
+        description = "Phenylephrine hydrochloride 5mg + Chlorpheniramine maleate 2mg";
+        break;
+      case "DELCOLD_P_SUSP":
+        img = "<img src='"+url_img_path+"DELCOLD_SYRUP.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:40%; height: 400px;'><br><br>";
+        title = "DELCOLD-P Susp";
+        description = "Phenylephrine hydrochloride 50mg + Chlorpheniramine maleate 2mg + Paracetamol 250mg";
+        break;
+      case "GPR_20":
+        img = "<img src='"+url_img_path+"GPR_20.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "GPR 20 Tablets";
+        description = "Rabeprazole 20mg";
+        break;
+      case "GPR_DSR":
+        img = "<img src='"+url_img_path+"GPR_DSR.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "GPR DSR Capsules";
+        description = "Rabiprazole 20mg, Domperidone 30mg SR";
+        break;
+      case "LA_20_TABLETS":
+        img = "<img src='"+url_img_path+"LA_20_TABLETS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "LA 20 Tablets";
+        description = "Rabeprazole 20mg";
+        break;
+      case "LA_FER_XT_DROPS":
+        img = "<img src='"+url_img_path+"LA_FER_XT_DROPS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:40%; height: 400px;'><br><br>";
+        title = "LA FER XT Drops";
+        description = "Ferrous Ascor (Equ to Elemental IRON) 10 mg + Folic Acid 100mcg Drops";
+        break;
+      case "LA_FER_XT_TABLETS":
+        img = "<img src='"+url_img_path+"LA_FER_XT_TABLETS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "LA FER XT Tablets";
+        description = "Ferrous Ascor (Equivalent to Elemental IRON 100 mg, Folic Acid 1.5mg + Vit B12 15mcg + Zinc 61.8 mg";
+        break;
+      case "NEW_CET_M_SUSPENSION":
+        img = "<img src='"+url_img_path+"NEW_CET_M_SUSPENSION.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:40%; height: 400px;'><br><br>";
+        title = "NEW CET-M Susp";
+        description = "Levocetirizine 5 mg + Montelukast 10mg Syrup";
+        break;
+      case "NEW_CET_TABLETS":
+        img = "<img src='"+url_img_path+"NEW_CET_TABLETS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "NEW CET M Tablets";
+        description = "Levocetirizine 5 mg + Montelukast 10mg";
+        break;
+      case "NIMDAY":
+        img = "<img src='"+url_img_path+"NIMDAY.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "NIMDAY Tablets";
+        description = "Nimesulide 100 mg";
+        break;
+      case "NUTRILA_DROPS":
+        img = "<img src='"+url_img_path+"NUTRILA_DROPS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "NUTRILA Drops";
+        description = "Multivitamins + Minerals + Trace Elements + Anti Oxidents";
+        break;
+      case "NUTRILA_MOM":
+        img = "<img src='"+url_img_path+"NUTRILA_MOM.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:90%; height: 400px;'><br><br>";
+        title = "NUTRILA MOM Powder";
+        description = "Multivitamins + Minerals + Trace Elements + Anti Oxidents + DHA";
+        break;
+      case "NUTRILA_TABLETS":
+        img = "<img src='"+url_img_path+"NUTRILA_TABLETS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "NUTRILA Tablets";
+        description = "Multivitamins + Minerals + Trace Elements + Anti Oxidents etc";
+        break;
+      case "ONDA":
+        img = "<img src='"+url_img_path+"ONDA.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "ONDA 4mg Tablets";
+        description = "Ondansetron 4 mg";
+        break;
+      case "PF_650":
+        img = "<img src='"+url_img_path+"PF_650.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "PF 650mg Tablets";
+        description = "Paracetamol 650";
+        break;
+      case "PROCORIL_LS_DROPS":
+        img = "<img src='"+url_img_path+"PROCORIL_LS_DROPS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:50%;'><br><br>";
+        title = "PROCORIL-LS Drops";
+        description = "Levosalbutamol 0.25mg + Ambroxyl 7.5mg  + Guaiphensine 12.5mg Drops";
+        break;
+      case "PROCORIL_LS_SYP":
+        img = "<img src='"+url_img_path+"PROCORIL_LS_SYP.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "PROCORIL-LS Syrup";
+        description = "Levosalbutamol 1mg + Ambroxyl 30mg + Guaiphensine 50mg";
+        break;
+      case "PROCORIL_SYP":
+        img = "<img src='"+url_img_path+"PROCORIL_SYP.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "PROCORIL Syrup";
+        description = "Ambroxyl 15mg + Terbutaline 1.5mg + Guaiphenesine 50mg + Menthol 1mg";
+        break;
+      case "QUADRIS_7":
+        img = "<img src='"+url_img_path+"QUADRIS_7.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "QUADRIS 7 Tablets";
+        description = "Cissus Quadrangularis 500mg + Calcium Citrate Equ Ele Calcium 500 + Vit K2-7 45mcg + Calcitriol 0.25mcg + Methylcobalamin 750 + Folic Acid 0.75 + Zinc 62.8mg";
+        break;
+      case "SUCRACID":
+        img = "<img src='"+url_img_path+"SUCRACID.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "SUCRACID Susp";
+        description = "Sucralfate 500mg";
+        break;
+      case "SUCRACID_O":
+        img = "<img src='"+url_img_path+"SUCRACID_O.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "SUCRACID-O Susp";
+        description = "Sucralfate 500mg + Oxetacaine 10mg";
+        break;
+      case "THYROIN_100":
+        img = "<img src='"+url_img_path+"THYROIN_100.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "THYROIN 100";
+        description = "Thyroxine Sodium 100 mcg";
+        break;
+      case "THYROIN_12.5":
+        img = "<img src='"+url_img_path+"THYROIN_12.5.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "THYROIN 12.5";
+        description = "Thyroxine Sodium 12.5 mcg";
+        break;
+      case "THYROIN_25":
+        img = "<img src='"+url_img_path+"THYROIN_25.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "THYROIN 25";
+        description = "Thyroxine Sodium 25 mcg";
+        break;
+      case "THYROIN_50":
+        img = "<img src='"+url_img_path+"THYROIN_50.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "THYROIN 50";
+        description = "Thyroxine Sodium 50 mcg";
+        break;
+      case "THYROIN_75":
+        img = "<img src='"+url_img_path+"THYROIN_75.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
+        title = "THYROIN 75";
+        description = "Thyroxine Sodium 75 mcg";
+        break;
+      case "VMIN_400":
+        img = "<img src='"+url_img_path+"VMIN_400.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:50%;'><br><br>";
+        title = "Vmin D3 400 Drops";
+        description = "Vitamin D3 400 IU";
+        break;
+      case "VMIN_800":
+        img = "<img src='"+url_img_path+"VMIN_800.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:50%;'><br><br>";
+        title = "Vmin D3 800 Drops";
+        description = "Vitamin D3 800 IU";
+        break;
+      default:
+        img = "...";
+        title = "...";
+        description = "...";
+        break;
+    }
+    document.getElementById("modal_title").innerHTML = title;
+    document.getElementById("product_img").innerHTML = img;
+    document.getElementById("product_composition").innerHTML = description;
+    modal.style.display = "block";
+  }
+
+  // function notifyAdmin() {
+  //   var name = document.getElementById('contact-us-name');
+  //   var email = document.getElementById('contact-us-email');
+  //   var phone = document.getElementById('contact-us-phone');
+  //   var subject = document.getElementById('contact-us-subject');
+  //   var message = document.getElementById('contact-us-message');
+
+  //   console.log()
+  // }
+
+
+  $(document).ready(function(){
+    $("#contact-submit-btn").click(function(){
+      $.post("/",
+      {
+        name: document.getElementById('contact-us-name').value,
+        email: document.getElementById('contact-us-email').value,
+        phone: document.getElementById('contact-us-phone').value,
+        subject: document.getElementById('contact-us-subject').value,
+        message: document.getElementById('contact-us-message').value
+      },
+      function(status){
+        alert("Status: " + status);
+      });
+    });
+  });
 
 </script>
 
 <body onload="reload()">
+
+  <div id="product_description" class="modal">
+    <div class="modal-content">
+      <div class="row product_name modal_title" id="modal_title">
+      </div>
+      <br><br>
+      <div class='row img_desc'>
+        <div class='col-md-5' id="product_img" style="border-right: 3px solid #B80000;" align="right">
+        </div>
+        <div class="col-md-7 product_composition" id="product_composition" align="middle">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <nav class="navbar navbar-fixed-top" id = "nav">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -483,52 +807,83 @@
     
     <div class="row col-md-12 products-row">
       
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/ABC_ZYME_DROPS.jpg" alt="Avatar" height="250" width="90%" style="text-align: center; vertical-align: middle; padding-top: 25%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">ABC ZYME <span style="font-size: 8px;">Drops</span></span></p>
-            <p class="product_composition">Alpha Amylase (1:800) 20mg + Papain 10mg + Anise Oil 2mg + Dil Oil 2mg</p>
-          </div>
-        </div>
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('ABC_ZYME_DROPS')" onclick="open_product_description_modal('ABC_ZYME_DROPS')" id="ABC_ZYME_DROPS"><span class="product_name">ABC ZYME <span style="font-size: 12px;">Drops</span></span></button>
       </div>
 
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/AMNILARG.jpg" alt="Avatar" height="250" width="90%" style="text-align: center; vertical-align: middle; padding-top: 25%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">AMNILARG <span style="font-size: 8px;">Sachet</span></span></p>
-            <p class="product_composition">L Arginine 3gm + Proanthocyanidins 75mg + Methylcobalamin 750mg + Zinc 10mg + Folic Acid 1.5mg</p>
-          </div>
-        </div>
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('AMNILARG')" onclick="open_product_description_modal('AMNILARG')" id="AMNILARG"><span class="product_name">AMNILARG <span style="font-size: 12px;">Sachet</span></span></button>
       </div>
 
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/AMS_FAST_GEL.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">AMS FAST <span style="font-size: 8px;">GEL</span></span></p>
-            <p class="product_composition">Aluminium Hydroxide 250mg + Magnesium Hydroxide 250mg + Dimethicone 50mg + Sorbitol 1.2g</p>
-          </div>
-        </div>
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('AMS_FAST_GEL')" onclick="open_product_description_modal('AMS_FAST_GEL')" id="AMS_FAST_GEL"><span class="product_name">AMS FAST <span style="font-size: 12px;">GEL</span></span></button>
       </div>
 
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/AP_DOL.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">AP DOL <span style="font-size: 8px;">Tablets</span></span></p>
-            <p class="product_composition">Aceclofenac 100 mg + Paracetamol 325mg</p>
-          </div>
-        </div>
+    </div>
+
+
+    <div class="row col-md-12 products-row">
+
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('AP_DOL')" onclick="open_product_description_modal('AP_DOL')" id="AP_DOL"><span class="product_name">AP DOL <span style="font-size: 12px;">Tablets</span></span></button>
+      </div>
+      
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('CALCITRA_TAB')" onclick="open_product_description_modal('CALCITRA_TAB')" id="CALCITRA_TAB"><span class="product_name">CALCITRA <span style="font-size: 12px;">Tablets</span></span></button>
+      </div>
+
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('DELCOLD_DROPS')" onclick="open_product_description_modal('DELCOLD_DROPS')" id="DELCOLD_DROPS"><span class="product_name">DELCOLD <span style="font-size: 12px;">Drops</span></span></button>
+      </div>
+
+    </div>
+
+
+    <div class="row col-md-12 products-row">
+
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('DELCOLD_SYRUP')" onclick="open_product_description_modal('DELCOLD_SYRUP')" id="DELCOLD_SYRUP"><span class="product_name">DELCOLD <span style="font-size: 12px;">Syrup</span></span></button>
+      </div>
+
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('DELCOLD_P_SUSP')" onclick="open_product_description_modal('DELCOLD_P_SUSP')" id="DELCOLD_P_SUSP"><span class="product_name">DELCOLD-P <span style="font-size: 12px;">Susp</span></span></button>
+      </div>
+      
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('GPR_20')" onclick="open_product_description_modal('GPR_20')" id="GPR_20"><span class="product_name">GPR 20 <span style="font-size: 12px;">Tablets</span></span></button>
+      </div>
+      
+    </div>
+
+    <div class="row col-md-12 products-row">
+
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('GPR_DSR')" onclick="open_product_description_modal('GPR_DSR')" id="GPR_DSR"><span class="product_name">GPR DSR <span style="font-size: 12px;">Capsules</span></span></button>
+      </div>
+      
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('LA_20_TABLETS')" onclick="open_product_description_modal('LA_20_TABLETS')" id="LA_20_TABLETS"><span class="product_name">LA 20 <span style="font-size: 12px;">Tablets</span></span></button>
+      </div>
+      
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('LA_FER_XT_DROPS')" onclick="open_product_description_modal('LA_FER_XT_DROPS')" id="LA_FER_XT_DROPS"><span class="product_name">LA FER XT <span style="font-size: 12px;">Drops</span></span></button>
+      </div>
+      
+    </div>
+
+
+    <div class="row col-md-12 products-row">
+      
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('LA_FER_XT_TABLETS')" onclick="open_product_description_modal('LA_FER_XT_TABLETS')" id="LA_FER_XT_TABLETS"><span class="product_name">LA FER XT <span style="font-size: 12px;">Tablets</span></span></button>
+      </div>
+
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NEW_CET_M_SUSPENSION')" onclick="open_product_description_modal('NEW_CET_M_SUSPENSION')" id="NEW_CET_M_SUSPENSION"><span class="product_name">NEW CET-M <span style="font-size: 12px;">Susp</span></span></button>
+      </div>
+      
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NEW_CET_TABLETS')" onclick="open_product_description_modal('NEW_CET_TABLETS')" id="NEW_CET_TABLETS"><span class="product_name">NEW CET M <span style="font-size: 12px;">Tablets</span></span></button>
       </div>
 
     </div>
@@ -536,52 +891,16 @@
 
     <div class="row col-md-12 products-row">
       
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/CALCITRA_TAB.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">CALCITRA <span style="font-size: 8px;">Tablets</span></span></p>
-            <p class="product_composition">Calcium Citrate 1000mg + Vit D3 200 IU + Zinc 4mg, Magnesium 100mg</p>
-          </div>
-        </div>
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NIMDAY')" onclick="open_product_description_modal('NIMDAY')" id="NIMDAY"><span class="product_name">NIMDAY <span style="font-size: 12px;">Tablets</span></span></button>
+      </div>
+      
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NUTRILA_DROPS')" onclick="open_product_description_modal('NUTRILA_DROPS')" id="NUTRILA_DROPS"><span class="product_name">NUTRILA <span style="font-size: 12px;">Drops</span></span></button>
       </div>
 
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/DELCOLD_DROPS.jpg" alt="Avatar" height="250" width="90%" style="text-align: center; vertical-align: middle; padding-top: 5%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">DELCOLD <span style="font-size: 8px;">Drops</span></span></p>
-            <p class="product_composition">Phenylephrine hydrochloride 5mg + Chlorpheniramine maleate 2mg </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/DELCOLD_SYRUP.jpg" alt="Avatar" height="250" width="60%" style="text-align: center; vertical-align: middle; padding-top: 5%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">DELCOLD <span style="font-size: 8px;">Syrup</span></span></p>
-            <p class="product_composition">Phenylephrine hydrochloride 5mg + Chlorpheniramine maleate 2mg </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/DELCOLD_P_SYRUP.jpg" alt="Avatar" height="250" width="60%" style="text-align: center; vertical-align: middle; padding-top: 5%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">DELCOLD-P <span style="font-size: 8px;">Susp</span></span></p>
-            <p class="product_composition">Phenylephrine hydrochloride 50mg + Chlorpheniramine maleate 2mg + Paracetamol 250mg </p>
-          </div>
-        </div>
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NUTRILA_MOM')" onclick="open_product_description_modal('NUTRILA_MOM')" id="NUTRILA_MOM"><span class="product_name">NUTRILA MOM <span style="font-size: 12px;">Powder</span></span></button>
       </div>
 
     </div>
@@ -589,52 +908,48 @@
 
     <div class="row col-md-12 products-row">
       
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/GPR_20.jpg" alt="Avatar" height="180" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">GPR 20 <span style="font-size: 8px;">Tablets</span></span></p>
-            <p class="product_composition">Rabeprazole 20mg</p>
-          </div>
-        </div>
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NUTRILA_TABLETS')" onclick="open_product_description_modal('NUTRILA_TABLETS')" id="NUTRILA_TABLETS"><span class="product_name">NUTRILA <span style="font-size: 12px;">Tablets</span></span></button>
+      </div>
+      
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('ONDA')" onclick="open_product_description_modal('ONDA')" id="ONDA"><span class="product_name">ONDA 4mg <span style="font-size: 12px;">Tablets</span></span></button>
       </div>
 
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/GPR_DSR.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">GPR DSR <span style="font-size: 8px;">Capsules</span></span></p>
-            <p class="product_composition">Rabiprazole 20mg, Domperidone 30mg SR </p>
-          </div>
-        </div>
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('PF_650')" onclick="open_product_description_modal('PF_650')" id="PF_650"><span class="product_name">PF 650mg <span style="font-size: 12px;">Tablets</span></span></button>
       </div>
 
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/LA_20_TABLETS.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">LA 20 <span style="font-size: 8px;">Tablets</span></span></p>
-            <p class="product_composition">Rabeprazole 20mg</p>
-          </div>
-        </div>
+    </div>
+
+    <div class="row col-md-12 products-row">
+
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('PROCORIL_LS_DROPS')" onclick="open_product_description_modal('PROCORIL_LS_DROPS')" id="PROCORIL_LS_DROPS"><span class="product_name">PROCORIL-LS <span style="font-size: 12px;">Drops</span></span></button>
+      </div>
+      
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('PROCORIL_LS_SYP')" onclick="open_product_description_modal('PROCORIL_LS_SYP')" id="PROCORIL_LS_SYP"><span class="product_name">PROCORIL-LS <span style="font-size: 12px;">Syrup</span></span></button>
+      </div>
+      
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('PROCORIL_SYP')" onclick="open_product_description_modal('PROCORIL_SYP')" id="PROCORIL_SYP"><span class="product_name">PROCORIL <span style="font-size: 12px;">Syrup</span></span></button>
+      </div>
+      
+    </div>
+
+    <div class="row col-md-12 products-row">
+      
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('QUADRIS_7')" onclick="open_product_description_modal('QUADRIS_7')" id="QUADRIS_7"><span class="product_name">QUADRIS 7 <span style="font-size: 12px;">Tablets</span></span></button>
       </div>
 
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/LA_FER_XT_DROPS.jpg" alt="Avatar" height="250" width="80%" style="text-align: center; vertical-align: middle; padding-top: 25%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">LA FER XT <span style="font-size: 8px;">Drops</span></span></p>
-            <p class="product_composition">Ferrous Ascor (Equ to Elemental IRON) 10 mg + Folic Acid 100mcg Drops</p>
-          </div>
-        </div>
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('SUCRACID')" onclick="open_product_description_modal('SUCRACID')" id="SUCRACID"><span class="product_name">SUCRACID <span style="font-size: 12px;">Susp</span></span></button>
+      </div>
+      
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('SUCRACID_O')" onclick="open_product_description_modal('SUCRACID_O')" id="SUCRACID_O"><span class="product_name">SUCRACID-O <span style="font-size: 12px;">Susp</span></span></button>
       </div>
 
     </div>
@@ -642,294 +957,42 @@
 
     <div class="row col-md-12 products-row">
       
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/LA_FER_XT_TABLETS.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">LA FER XT <span style="font-size: 8px;">Tablets</span></span></p>
-            <p class="product_composition">Ferrous Ascor (Equivalent to Elemental IRON 100 mg, Folic Acid 1.5mg + Vit B12 15mcg + Zinc 61.8 mg</p>
-          </div>
-        </div>
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_100')" onclick="open_product_description_modal('THYROIN_100')" id="THYROIN_100"><span class="product_name">THYROIN 100</span></button>
       </div>
-
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/NEW_CET_M_SUSPENSION.jpg" alt="Avatar" height="250" width="75%" style="text-align: center; vertical-align: middle; padding-top: 5%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">NEW CET-M <span style="font-size: 8px;">Susp</span></span></p>
-            <p class="product_composition">Levocetirizine 5 mg + Montelukast 10mg Syrup</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/NEW_CET_TABLETS.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">NEW CET M <span style="font-size: 8px;">Tablets</span></span></p>
-            <p class="product_composition">Levocetirizine 5 mg + Montelukast 10mg </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/NIMDAY.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">NIMDAY <span style="font-size: 8px;">Tablets</span></span></p>
-            <p class="product_composition">Nimesulide 100 mg</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-
-    <div class="row col-md-12 products-row">
       
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/NUTRILA_DROPS.jpg" alt="Avatar" height="250" width="100%" style="text-align: center; vertical-align: middle; padding-top: 25%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">NUTRILA <span style="font-size: 8px;">Drops</span></span></p>
-            <p class="product_composition">Multivitamins + Minerals + Trace Elements + Anti Oxidents</p>
-          </div>
-        </div>
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_12.5')" onclick="open_product_description_modal('THYROIN_12.5')" id="THYROIN_12.5"><span class="product_name">THYROIN 12.5</span></button>
       </div>
 
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/NUTRILA_MOM.jpg" alt="Avatar" height="250" width="100%" style="text-align: center; vertical-align: middle; padding-top: 25%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">NUTRILA MOM <span style="font-size: 8px;">Powder</span></span></p>
-            <p class="product_composition">Multivitamins + Minerals + Trace Elements + Anti Oxidents + DHA</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/NUTRILA_TABLETS.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">NUTRILA <span style="font-size: 8px;">Tablets</span></span></p>
-            <p class="product_composition">Multivitamins + Minerals + Trace Elements + Anti Oxidents etc</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/ONDA.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">ONDA 4mg <span style="font-size: 8px;">Tablets</span></span></p>
-            <p class="product_composition">Ondansetron 4 mg</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-
-    <div class="row col-md-12 products-row">
-      
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/PF_650.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">PF 650mg <span style="font-size: 8px;">Tablets</span></span></p>
-            <p class="product_composition">Paracetamol 650</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/PROCORIL_LS_DROPS.jpg" alt="Avatar" height="250" width="100%" style="text-align: center; vertical-align: middle; padding-top: 25%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">PROCORIL-LS <span style="font-size: 8px;">Drops</span></span></p>
-            <p class="product_composition">Levosalbutamol 0.25mg + Ambroxyl 7.5mg  + Guaiphensine 12.5mg Drops</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/PROCORIL_LS_SYP.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">PROCORIL-LS <span style="font-size: 8px;">Syrup</span></span></p>
-            <p class="product_composition">Levosalbutamol 1mg + Ambroxyl 30mg + Guaiphensine 50mg</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/PROCORIL_SYP.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">PROCORIL <span style="font-size: 8px;">Syrup</span></span></p>
-            <p class="product_composition">Ambroxyl 15mg + Terbutaline 1.5mg + Guaiphenesine 50mg + Menthol 1mg</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-
-    <div class="row col-md-12 products-row">
-      
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/QUADRIS_7.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">QUADRIS 7 <span style="font-size: 8px;">Tablets</span></span></p>
-            <p class="product_composition"><span style="font-size: 8px;">Cissus Quadrangularis 500mg + Calcium Citrate Equ Ele Calcium 500 + Vit K2-7 45mcg + Calcitriol 0.25mcg + Methylcobalamin 750 + Folic Acid 0.75 + Zinc 62.8mg</span></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/SUCRACID.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">SUCRACID <span style="font-size: 8px;">Susp</span></span></p>
-            <p class="product_composition">Sucralfate 500mg</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/SUCRACID_O.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">SUCRACID-O <span style="font-size: 8px;">Susp</span></span></p>
-            <p class="product_composition">sucralfate 500mg + Oxetacaine 10mg</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/THYROIN_100.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">THYROIN 100</span></p>
-            <p class="product_composition">Thyroxine Sodium 100 mcg</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-
-    <div class="row col-md-12 products-row">
-      
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/THYROIN_12.5.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">THYROIN 12.5</span></p>
-            <p class="product_composition">Thyroxine Sodium 12.5 mcg</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/THYROIN_25.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">THYROIN 25</span></p>
-            <p class="product_composition">Thyroxine Sodium 25 mcg</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/THYROIN_50.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">THYROIN 50</span></p>
-            <p class="product_composition">Thyroxine Sodium 50 mcg</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/THYROIN_75.jpg" alt="Avatar" height="200" width="100%" style="text-align: center; vertical-align: middle; padding-top: 50%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">THYROIN 75</span></p>
-            <p class="product_composition">Thyroxine Sodium 75 mcg</p>
-          </div>
-        </div>
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_25')" onclick="open_product_description_modal('THYROIN_25')" id="THYROIN_25"><span class="product_name">THYROIN 25</span></button>
       </div>
 
     </div>
 
     <div class="row col-md-12 products-row">
       
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/VMIN_400.jpg" alt="Avatar" height="250" width="80%" style="text-align: center; vertical-align: middle; padding-top: 25%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">Vmin D3 400 <span style="font-size: 8px;">Drops</span></span></p>
-            <p class="product_composition">Vitamin D3 400 IU</p>
-          </div>
-        </div>
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_50')" onclick="open_product_description_modal('THYROIN_50')" id="THYROIN_50"><span class="product_name">THYROIN 50</span></button>
+      </div>
+      
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_75')" onclick="open_product_description_modal('THYROIN_75')" id="THYROIN_75"><span class="product_name">THYROIN 75</span></button>
+      </div>
+      
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('VMIN_400')" onclick="open_product_description_modal('VMIN_400')" id="VMIN_400"><span class="product_name">Vmin D3 400 <span style="font-size: 12px;">Drops</span></span></button>
       </div>
 
-      <div class="col-md-3">
-        <div class="card">
-          <div style="height: 250px;">
-            <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/VMIN_800.jpg" alt="Avatar" height="250" width="80%" style="text-align: center; vertical-align: middle; padding-top: 25%;"><br>
-          </div>
-          <div class="details">
-            <p><h5>Product Name:</h5></p><span class="product_name">Vmin D3 800 <span style="font-size: 8px;">Drops</span></span></p>
-            <p class="product_composition">Vitamin D3 800 IU</p>
-          </div>
-        </div>
-      </div>
+    </div>
 
+    <div class="row col-md-12 products-row">
+
+      <div class="col-md-4">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('VMIN_800')" onclick="open_product_description_modal('VMIN_800')" id="VMIN_800"><span class="product_name">Vmin D3 800 <span style="font-size: 12px;">Drops</span></span></button>
+      </div>
+      
     </div>
     <br><br><br><br>
   </div>
@@ -941,123 +1004,72 @@
         <h5 class="address-info">Address Info</h5>
         
         <div class="row col-md-12 contact-screen-left-heading">
-          <div class="col-md-1">
             <span class="fa fa-envelope"></span>
-          </div>
-          <div class="col-md-11">
             Email
-          </div>
         </div>
         
         <div class="row col-md-12 contact-screen-left-content">
-          <div class="col-md-1">
-          </div>
-          <div class="col-md-11">
             latherapeutics@gmail.com
-          </div>
         </div>
 
         <div class="row col-md-12 contact-screen-left-heading">
-          <div class="col-md-1">
             <span class="glyphicon glyphicon-phone"></span>
-          </div>
-          <div class="col-md-11">
             Phone
-          </div>
         </div>
         
         <div class="row col-md-12 contact-screen-left-content">
-          <div class="col-md-1">
             
-          </div>
-          <div class="col-md-11">
             +91 82 97 98 99 55
-          </div>
         </div>
 
         <div class="row col-md-12 contact-screen-left-heading">
-          <div class="col-md-1">
             <span class="fa fa-map-o"></span>
-          </div>
-          <div class="col-md-11">
             Address
-          </div>
         </div>
         
         <div class="row col-md-12 contact-screen-left-content">
-          <div class="col-md-1">
             
-          </div>
-          <div class="col-md-11">
             Atlanta, Near Soundarya Garden,<br>
             Near WH Bridge, PUNE - 411057.<br>
             www.latherapeutics.com
-          </div>
         </div>
       </div>
       <div class="col-md-4 contact-screen-right">
         <h5 class="address-info">Get in touch</h5>
         
         <div class="row col-md-12 contact-screen-left-heading">
-          <div class="col-md-1">
             <span class="fa fa-user-o"></span>
-          </div>
-          <div class="col-md-3">
             Name:
-          </div>
-          <div class="col-md-8">
-            <input class="contact-text-box" type="text" name="name" value="Enter your name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your name';}" required="">
-          </div>
+            <input id="contact-us-name" class="contact-text-box" type="text" name="name" value="Enter your name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your name';}" required="">
         </div>
 
         <div class="row col-md-12 contact-screen-left-heading">
-          <div class="col-md-1">
             <span class="fa fa-envelope-open-o"></span>
-          </div>
-          <div class="col-md-3">
             Email:
-          </div>
-          <div class="col-md-8">
-            <input class="contact-text-box" type="text" name="name" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}" required="">
-          </div>
+            <input id="contact-us-email" class="contact-text-box" type="email" name="name" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}" required="">
         </div>
         
         <div class="row col-md-12 contact-screen-left-heading">
-          <div class="col-md-1">
             <span class="fa fa-phone"></span>
-          </div>
-          <div class="col-md-3">
             Phone:
-          </div>
-          <div class="col-md-8">
-            <input class="contact-text-box" type="text" name="name" value="Enter your phone number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your phone number';}" required="">
-          </div>
+            <input id="contact-us-phone" class="contact-text-box" inputmode="numeric" name="name" value="Enter your phone number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your phone number';}" required="">
         </div>
 
         <div class="row col-md-12 contact-screen-left-heading">
-          <div class="col-md-1">
             <span class="fa fa-pencil-square-o"></span>
-          </div>
-          <div class="col-md-3">
             Subject:
-          </div>
-          <div class="col-md-8">
-            <input class="contact-text-box" type="text" name="name" value="Enter your subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your subject';}" required="">
-          </div>
+            <input id="contact-us-subject" class="contact-text-box" type="text" name="name" value="Enter your subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your subject';}" required="">
         </div>
 
         <div class="row col-md-12 contact-screen-left-heading">
-          <div class="col-md-1">
             <span class="fa fa-pencil-square-o"></span>
-          </div>
-          <div class="col-md-3">
             Message:
-          </div>
-          <div class="col-md-8">
-            <textarea class="contact-text-box" name="message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter you message...';}" required="">Enter you message...</textarea>
-          </div>
+            <textarea id="contact-us-message" class="contact-text-box" name="message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter you message...';}" required="">Enter you message...</textarea>
         </div>
         
+        <div class="row col-md-12 contact-screen-submit-btn">
+          <button class="contact-submit-btn" id="contact-submit-btn">Submit</button>
+        </div>
         
       </div>
     </div>
