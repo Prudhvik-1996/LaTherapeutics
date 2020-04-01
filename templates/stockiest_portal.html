@@ -1,0 +1,173 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<style>
+	table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 60%;
+	}
+	td {
+		border: 1px solid black;
+		text-align: left;
+		padding: 8px;
+	}
+	th {
+		border: 1px solid black;
+		text-align: left;
+		padding: 8px;
+		width: 40%;
+	}
+	tr:nth-child(even) {
+		background-color: #E8E8E8;
+	}
+
+	.order_qty {
+		font-weight: normal;
+		font-size: 18px;
+		background-color: #F6F6F6;
+		width: 50%;
+	}
+
+	.order_form_heading {
+		text-align: center;
+		padding: 10px;
+		/*margin: 2px;*/
+	}
+</style>
+
+<script type="text/javascript">
+	
+	class Order {
+	  constructor(product_id, qty) {
+	    this.product_id = product_id;
+	    this.qty = qty;
+	  }
+	}
+
+	function get_orders() {
+		var orders = [];
+    var orders_form = document.getElementsByClassName('order_rows');
+    for (var i = 0; i < orders_form.length; i++) {
+      var order_element = orders_form[i];
+      var product_id = order_element.getElementsByTagName('th')[0].id;
+      var product_name = order_element.getElementsByTagName('td')[0].innerHTML.trim();
+      var product_qty = document.getElementById(product_id).getElementsByTagName('input')[0].value;
+      var product_units = document.getElementById(product_id).getElementsByTagName('span')[0].innerHTML.trim();
+
+      if (product_qty == null) {
+      	product_qty = 0;
+      }
+			var order = new Order(product_id, product_qty);
+			orders.push("{" +
+				"\"product_id\": \"" + product_id + "\", " +
+				"\"product_qty\": \"" + product_qty + "\", " +
+				"\"product_name\": \"" + product_name + "\", " +
+				"\"product_units\": \"" + product_units + "\"" +
+				"}"
+			);
+    }
+    console.log(orders);
+    return orders;
+	}
+
+	$(document).ready(function(){
+    $("#stockiest_make_order_btn").click(function(){
+    	orders = get_orders();
+    	document.getElementById("stockiest_make_order_btn").innerHTML = "Sending email...";
+    	document.getElementById("stockiest_make_order_btn").disabled = true;
+      $.post("/make_order",
+      {
+      	'orders': orders
+      },
+      function(status){
+        alert("Status: " + status);      		
+	    	document.getElementById("stockiest_make_order_btn").innerHTML = "Place Order";
+	    	document.getElementById("stockiest_make_order_btn").disabled = false;      	
+      });
+    });
+  });
+</script>
+
+  <div class="row about-screen" style="width: 100%;" id = "stockiest-screen">
+    <h1 style="text-align: center; font-size: 64px; padding-bottom: 5%;">Stockiest Portal</h1>
+
+    {% if not session.logged_in %}
+    {% if login_comments %}
+    <div class="login_comments">
+    	{{ login_comments }}
+    </div>
+    {% endif %}
+    <div class="login_container">
+      <label for="login_user_id"><b>User Id</b></label>
+      <br>
+      <input type="text" placeholder="Enter User Id" name="login_user_id" id = "login_user_id" required style="  width: 60%; padding: 12px 12px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; box-sizing: border-box; align-content: center;">
+      <br>
+      <label for="login_password"><b>Password</b></label>
+      <br>
+      <input type="password" placeholder="Enter Password" name="login_password" id = "login_password" required style="  width: 60%; padding: 12px 12px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; box-sizing: border-box;">
+      <br>
+      <br>
+      <button id = "stockiest_login_btn" style="background-color: #4CAF50; color: white; padding: 14px 20px; margin: 8px 0; border: none; cursor: pointer; width: 60%;">Login</button>
+      <br>
+    </div>
+
+    {% endif %}
+    {% if session.logged_in %}
+    	<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+    <div class="row col-md-12">
+      <button id = "stockiest_logout_btn" style="background-color: #4CAF50; color: white; padding: 10px 10px; margin: 8px 0; border: none; cursor: pointer; width: 10%; position: absolute; top: 8px; right: 16px; font-size: 18px;">Logout</button>
+    </div>
+    <br><br>
+
+    <h2 class="row col-md-12 order_form_heading">
+    	Order Form
+    </h2>
+
+    <div class="row col-md-12">
+    	To, <br>
+    	M/s. LA Therapeutics, <br>
+    	Please supply the following products.
+    	<br>
+    	<br>
+    </div>
+
+    <table id="products_table">
+    	<tr style="font-weight: bold; background-color: #4242EE; color: white;">
+    		<td style="text-align: center;">
+    			Product Name
+    		</td><!-- 
+    		<td>
+    			Product Description
+    		</td> -->
+    		<th style="text-align: center;">
+    			Quantity
+    		</th>
+    	</tr>
+
+    	{% for product in products_list %}
+    		<tr class="order_rows">
+    			<td>
+    				{{ product.f_display_name }}
+    			</td>
+    			<th id="{{ product.f_product_name }}">
+    				<input type="number" name="order_qty" class="order_qty">
+    				<span style="padding-left: 10px; font-weight: normal; font-size: 16px;">
+	    				{{ product.f_product_units }}
+    				</span>
+    			</th>
+    		</tr>
+    	{% endfor %}
+    </table>
+
+    <div class="row col-md-12">
+      <button id = "stockiest_make_order_btn" style="background-color: #4CAF50; color: white; padding: 10px 10px; margin: 8px 0; border: none; cursor: pointer; width: 20%; position: absolute; top: 8px; right: 16px; font-size: 18px;">Place Order</button>
+    </div>
+    
+
+    {% endif %}
+
+  </div>
+
+
+{% endblock %}
