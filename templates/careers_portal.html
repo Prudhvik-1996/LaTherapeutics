@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<style type="text/css">
+	table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 60%;
+		align-content: center;
+	}
+	td {
+		border: 1px solid black;
+		text-align: left;
+		padding: 8px;
+	}
+	th {
+		border: 1px solid black;
+		text-align: left;
+		padding: 8px;
+		width: 30%;
+	}
+	tr:nth-child(even) {
+		background-color: #E8E8E8;
+	}
+
+	.order_qty {
+		font-weight: normal;
+		font-size: 18px;
+		background-color: #F6F6F6;
+		width: 50%;
+	}
+
+	.order_form_heading {
+		text-align: center;
+		padding: 10px;
+		/*margin: 2px;*/
+	}
+
+	.submit_file {
+		align-content: right;
+		padding-left: 75%;
+	}
+
+	.submit_file_upload {
+		font-size: 13px;
+		background-color: #4CAF50;
+		color: white;
+	}
+
+	.upload_file {
+		font-size: 12px;
+	}
+</style>
+
+
+<!-- TODO: change for id variables to class variables.. -->
+<script type="text/javascript">
+	function fill_respective_fields() {
+
+    var applicant_form_name = document.getElementsByClassName('applicant_form_name');
+    var applicant_form_email = document.getElementsByClassName('applicant_form_email');
+    var applicant_form_mobile = document.getElementsByClassName('applicant_form_mobile');
+
+    for (var i = 0; i < applicant_form_name.length; i++) {
+      var i_applicant_form_name = applicant_form_name[i];
+      var i_applicant_form_email = applicant_form_email[i];
+      var i_applicant_form_mobile = applicant_form_mobile[i];
+
+      i_applicant_form_name.value = document.getElementById('applicant_name').value;
+      i_applicant_form_email.value = document.getElementById('applicant_email').value;
+      i_applicant_form_mobile.value = document.getElementById('applicant_mobile').value;
+    }
+	}
+</script>
+
+	<div class="row about-screen" style="width: 100%;" id = "stockiest-screen">
+    <h1 style="text-align: center; font-size: 64px; padding-bottom: 5%;">Careers Portal</h1>
+
+    {% if application_status != "" %}
+
+    	<h3>Applied successfully!!</h3>
+
+    {% else %}
+
+    	<label>Name:</label><br>
+    	<input type="text" id="applicant_name" name="applicant_name" onchange="fill_respective_fields()">
+    	<br>
+    	<label>Email:</label><br>
+    	<input type="text" id="applicant_email" name="applicant_email" onchange="fill_respective_fields()">
+    	<br>
+    	<label>Mobile:</label><br>
+    	<input type="text" id="applicant_mobile" name="applicant_mobile" onchange="fill_respective_fields()">
+    	<br><br>
+
+	    <table id="products_table">
+	    	<tr style="font-weight: bold; background-color: #4242EE; color: white;">
+	    		<td style="text-align: center;">
+	    			Role
+	    		</td>
+	    		<th style="text-align: center;">
+	    			
+	    		</th>
+	    	</tr>
+
+	    	{% for role in roles %}
+	    		<tr class="order_rows">
+	    			<td>
+	    				{{ role }}
+	    			</td>
+	    			<th>
+				      <form action = "/careers_portal" method = "post" enctype="multipart/form-data">
+				      	<div>
+					        <input class="upload_file" type="file" name="file"/>  
+				      	</div> 
+				        <div class="submit_file">
+					        <input class="submit_file_upload" type = "submit" value="Upload">				        	
+				        </div>
+					    	<input type="hidden" name="applicant_name" class="applicant_form_name">
+					    	<input type="hidden" name="applicant_email" class="applicant_form_email">
+					    	<input type="hidden" name="applicant_mobile" class="applicant_form_mobile">
+					    	<input type="hidden" name="applicant_field" class="applicant_form_field" value="{{ role }}">
+					    </form>
+	    			</th>
+	    		</tr>
+	    	{% endfor %}
+	    </table>
+
+		{% endif %}
+
+  </div>
+
+
+{% endblock %}

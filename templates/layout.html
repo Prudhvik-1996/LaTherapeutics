@@ -46,6 +46,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <style type="text/css">
@@ -228,10 +230,10 @@
     /*position: fixed;*/
     height: 100%;
     width: 100%;
-    background-image: url("https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/whitegradbg.jpg");
+    background-image: url("https://cdn.dribbble.com/users/707385/screenshots/5939279/24_9.gif");
     background-repeat: no-repeat;
     background-size:cover;
-    /*background-attachment: fixed;*/
+    background-attachment: fixed;
     float: left;
     /*clear: left;*/
   }
@@ -390,10 +392,10 @@
   }
 
   .product_btn {
-    width: 75%;
+    width: 85%;
     /*background-color: #4242EE;*/
     color: #4242EE;
-    font-size: 34px;
+    font-size: 32px;
     background-color: #C4F86F;
     border-right: 4px solid #4242EE;
     border-bottom: 4px solid #4242EE;
@@ -513,7 +515,6 @@
     var h = window.outerHeight;
     if (w < h) {
       h = (9 / 16) * w;
-      console.log("hiii");
       var product_names = document.getElementsByClassName('product_btn');
       var product_name_captions = document.getElementsByClassName('product_name_caption');
       for (var i = 0; i < product_names.length; i++) {
@@ -524,25 +525,17 @@
         var element = product_name_captions[i];
         element.style.fontSize = "10px";
       }
+      var product_btns = document.getElementsByClassName('product_btn')
+      for (var i = 0; i < product_btns.length; i++) {
+        var product_btn = product_btns[i];
+        product_btn.style.fontSize = "22px";
+        product_btn.style.letterSpacing = "1.5px";
+      }
     } else {
       w = w*0.7;
       h = h*0.8;
       var intro_screen = "<img src=\"https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/1_MAIN_PAGE.jpg\" style=\"width:"+w+"px; height:"+h+"px\">"
       document.getElementById("intro-screen").innerHTML = intro_screen;
-    }
-  }
-
-  window.onclick = function(event) {
-    var modal = document.getElementById("product_description");
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-
-  window.onmouseover = function(event) {
-    var modal = document.getElementById("product_description");
-    if (event.target == modal) {
-      modal.style.display = "none";
     }
   }
 
@@ -803,8 +796,9 @@
           <li><a href="/#products-screen"><span class="glyphicon glyphicon-tasks"></span> Our Products</a></li>
           <!-- <li><a href="contact.html"><span class="glyphicon glyphicon-user"></span> Employees Portal</a></li> -->
           <li><a href="/stockiest_portal"><span class="glyphicon glyphicon-briefcase"></span> Stockiest Portal</a></li>
-          <li><a href="/#contact-screen"><span class="glyphicon glyphicon-earphone"></span> Contact</a></li>
-          <li><a href="/#contact-screen"><span class="glyphicon glyphicon-envelope"></span> Enquiry</a></li>
+          <li><a href="/careers_portal"><span class="fa fa-handshake-o"></span> Careers</a></li>
+          <li><a href="#contact-screen"><span class="glyphicon glyphicon-earphone"></span> Contact</a></li>
+          <li><a href="#contact-screen"><span class="glyphicon glyphicon-envelope"></span> Enquiry</a></li>
         </ul>
       </div>
     </div>

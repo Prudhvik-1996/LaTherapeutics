@@ -1,6 +1,10 @@
 from flask import render_template, Flask, url_for, redirect, request, session
 import os
 import smtplib
+from email.mime.multipart import MIMEMultipart 
+from email.mime.text import MIMEText 
+from email.mime.base import MIMEBase 
+from email import encoders 
 import traceback
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Table, DateTime, desc
@@ -23,21 +27,21 @@ order_to_la_html = """\
 <html>
   <head></head>
   <body>
-    <p>
-      Dear LaTherapeutics,<br>
-      Here is the order update from <b>|*order_from*|<b>, <br>
-    </p>
-    <table style="font-family: arial, sans-serif; border-collapse: collapse; width: 60%;">
-      <tr style="font-weight: bold; background-color: #4242EE; color: white;">
-        <td style="text-align: center; border: 1px solid black; text-align: left; padding: 8px;">
-          Product Name
-        </td>
-        <th style="border: 1px solid black; text-align: left; padding: 8px; width: 30%; text-align: center;">
-          Quantity <br><span style="font-weight: normal; font-size: 14px;">(in Strips / Bottles / Sachets)</span>
-        </th>
-      </tr>
-      |*order_rows*|
-    </table>
+	<p>
+	  Dear LaTherapeutics,<br>
+	  Here is the order update from <b>|*order_from*|<b>, <br>
+	</p>
+	<table style="font-family: arial, sans-serif; border-collapse: collapse; width: 60%;">
+	  <tr style="font-weight: bold; background-color: #4242EE; color: white;">
+		<td style="text-align: center; border: 1px solid black; text-align: left; padding: 8px;">
+		  Product Name
+		</td>
+		<th style="border: 1px solid black; text-align: left; padding: 8px; width: 30%; text-align: center;">
+		  Quantity <br><span style="font-weight: normal; font-size: 14px;">(in Strips / Bottles / Sachets)</span>
+		</th>
+	  </tr>
+	  |*order_rows*|
+	</table>
 
   </body>
 </html>
@@ -46,27 +50,27 @@ order_from_stockiest_html = """\
 <html>
   <head></head>
   <body>
-    <p>
-      To,<br>
-      M/s <b>|*stockiest*|</b>,<br>
-      We are in receipt of your order dated |*current_date*| and it will be served shortly..<br>
-    </p>
-    <table style="font-family: arial, sans-serif; border-collapse: collapse; width: 60%;">
-      <tr style="font-weight: bold; background-color: #4242EE; color: white;">
-        <td style="text-align: center; border: 1px solid black; text-align: left; padding: 8px;">
-          Product Name
-        </td>
-        <th style="border: 1px solid black; text-align: left; padding: 8px; width: 30%; text-align: center;">
-          Quantity <br><span style="font-weight: normal; font-size: 14px;">(in Strips / Bottles / Sachets)</span>
-        </th>
-      </tr>
-      |*order_rows*|
-    </table>
-    <br>
-    Thank you,<br><br>
-    La Therapeutics,<br>
-    +91 82 97 98 99 55,<br>
-    Atlanta, Near Soundarya Garden,<br>
+	<p>
+	  To,<br>
+	  M/s <b>|*stockiest*|</b>,<br>
+	  We are in receipt of your order dated |*current_date*| and it will be served shortly..<br>
+	</p>
+	<table style="font-family: arial, sans-serif; border-collapse: collapse; width: 60%;">
+	  <tr style="font-weight: bold; background-color: #4242EE; color: white;">
+		<td style="text-align: center; border: 1px solid black; text-align: left; padding: 8px;">
+		  Product Name
+		</td>
+		<th style="border: 1px solid black; text-align: left; padding: 8px; width: 30%; text-align: center;">
+		  Quantity <br><span style="font-weight: normal; font-size: 14px;">(in Strips / Bottles / Sachets)</span>
+		</th>
+	  </tr>
+	  |*order_rows*|
+	</table>
+	<br>
+	Thank you,<br><br>
+	La Therapeutics,<br>
+	+91 82 97 98 99 55,<br>
+	Atlanta, Near Soundarya Garden,<br>
 	Near WH Bridge, PUNE - 411057.<br><br>
 	www.latherapeutics.com<br>
   </body>
@@ -85,6 +89,31 @@ orders_in_email_html = '''
 	</th>
 </tr>
 '''
+
+notify_applicant_for_application = '''
+<html>
+  <head></head>
+  <body>
+	<p>
+	  To,<br>
+	  Mr/Ms <b>|*applicant_name*|</b>,<br>
+	  We have recieved your resume and will revert after processing..<br>
+	</p>
+	<br>
+	Thank you,<br><br>
+	La Therapeutics,<br>
+	+91 82 97 98 99 55,<br>
+	Atlanta, Near Soundarya Garden,<br>
+	Near WH Bridge, PUNE - 411057.<br><br>
+	www.latherapeutics.com<br>
+  </body>
+</html>
+'''
+
+roles = ["Territory Business Manager", "Area Business Manager", "State Business Manager", "Zonal Business Manager", "National Sales Manager", "Accounts Manager", "Marketing Manager", "Product Manager", "Group Product Manager", "Human Resourses Officer", "Business Processing Officer"]
+
+cwd = os.getcwd()
+
 # Stockiest login details
 class stockiest_login_details(db.Model):
 	__tablename__ = 't_stockiest_login_details'
@@ -194,7 +223,8 @@ def homepage():
 		print(name, email, phone, subject, message)
 		return send_mail(message)
 	else:
-		return render_template('homepage.html', contactMeMessage = "")
+		products_list = product_details.query.filter_by(f_status = "active").order_by("f_product_name").all()
+		return render_template('homepage.html', products = products_list)
 
 @app.route('/stockiest_portal', methods=['GET'])
 def get_stockiest_portal():
@@ -234,51 +264,91 @@ def stockiest_portal_logout():
 
 @app.route('/make_order', methods=['POST'])
 def make_order():
-	orders = request.form.getlist('orders[]')
+	try:		
+		orders = request.form.getlist('orders[]')
 
-	print(orders)
-	orders_to_mail = []
-	total_orders = 0
-	html_orders = []
+		print(orders)
+		orders_to_mail = []
+		total_orders = 0
+		html_orders = []
 
-	for each_order in orders:
-		each_order_dict = dict(json.loads(each_order))
+		for each_order in orders:
+			each_order_dict = dict(json.loads(each_order))
+			
+			if each_order_dict["product_qty"] != "":
+				total_orders += int(each_order_dict["product_qty"])
+				html_orders.append(orders_in_email_html.replace("|*product_name*|",each_order_dict["product_name"]).replace("|*product_units*|",each_order_dict["product_units"]).replace("|*product_qty*|",each_order_dict["product_qty"]))
+				orders_to_mail.append((each_order_dict["product_id"], each_order_dict["product_qty"]))
+
+		if total_orders == 0:
+			return "Invalid entry.."
+
+		orders_html = ""
+
+		for each_order_html in html_orders:
+			orders_html += each_order_html
+
+		msg_to_la = MIMEMultipart('alternative')
+		msg_to_la['Subject'] = "Order alert"
+
+		mail_order_to_la_html = order_to_la_html.replace("|*order_rows*|",orders_html)
+		mail_order_to_la_html = mail_order_to_la_html.replace("|*order_from*|",session['user_id'])
 		
-		if each_order_dict["product_qty"] != "":
-			total_orders += int(each_order_dict["product_qty"])
-			html_orders.append(orders_in_email_html.replace("|*product_name*|",each_order_dict["product_name"]).replace("|*product_units*|",each_order_dict["product_units"]).replace("|*product_qty*|",each_order_dict["product_qty"]))
-			orders_to_mail.append((each_order_dict["product_id"], each_order_dict["product_qty"]))
+		html_part = MIMEText(mail_order_to_la_html, 'html')
+		msg_to_la.attach(html_part)
+		
+		send_mail(msg_to_la.as_string())
 
-	if total_orders == 0:
-		return "Invalid entry.."
+		msg_to_stockiest = MIMEMultipart('alternative')
+		msg_to_stockiest['Subject'] = "Order alert"
 
-	orders_html = ""
+		mail_order_to_stockiest_html = order_from_stockiest_html.replace("|*stockiest*|",get_user_display_name_with_user_id(session['user_id'])).replace("|*current_date*|",datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+		mail_order_to_stockiest_html = mail_order_to_stockiest_html.replace("|*order_rows*|",orders_html)
 
-	for each_order_html in html_orders:
-		orders_html += each_order_html
+		html_part = MIMEText(mail_order_to_stockiest_html, 'html')
+		msg_to_stockiest.attach(html_part)
 
-	msg_to_la = MIMEMultipart('alternative')
-	msg_to_la['Subject'] = "Order alert"
+		send_mail(msg_to_stockiest.as_string(), get_user_email_with_user_id(session['user_id']))
+		return "Successfully placed your order.."
+	except:
+		return "Internal Server Error"
 
-	mail_order_to_la_html = order_to_la_html.replace("|*order_rows*|",orders_html)
-	mail_order_to_la_html = mail_order_to_la_html.replace("|*order_from*|",session['user_id'])
-	
-	html_part = MIMEText(mail_order_to_la_html, 'html')
-	msg_to_la.attach(html_part)
-	
-	send_mail(msg_to_la.as_string())
+@app.route('/careers_portal', methods=['GET', 'POST'])
+def get_careers_portal(application_status = ""):
+	try:
+		if request.method == 'POST':
+			f = request.files['file']  
+			applicant_name = request.form['applicant_name']
+			applicant_email = request.form['applicant_email']
+			applicant_mobile = request.form['applicant_mobile']
+			applicant_field = request.form['applicant_field']
+			print(applicant_name, applicant_email, applicant_mobile, applicant_field)
+			f.save(f.filename)
+			print(f.filename)
+			
+			msg_to_la = MIMEMultipart() 
+			msg_to_la['Subject'] = "Job alert"
+			html_part = MIMEText("<h3>Job Alert from %r, %r, %r, %r</h3>" %(applicant_name, applicant_email, applicant_mobile, applicant_field), 'html')
+			msg_to_la.attach(html_part)
+			attachment = open(cwd + "/" + f.filename, "rb")
+			p = MIMEBase('application', 'octet-stream') 
+			p.set_payload((attachment).read()) 
+			encoders.encode_base64(p) 
+			p.add_header('Content-Disposition', "attachment; filename= %s" % f.filename) 
+			msg_to_la.attach(p) 
+			send_mail(msg_to_la.as_string())
 
-	msg_to_stockiest = MIMEMultipart('alternative')
-	msg_to_stockiest['Subject'] = "Order alert"
+			msg_to_applicant = MIMEMultipart('alternative')
+			msg_to_applicant['Subject'] = "You Job Application Status"
 
-	mail_order_to_stockiest_html = order_from_stockiest_html.replace("|*stockiest*|",get_user_display_name_with_user_id(session['user_id'])).replace("|*current_date*|",datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-	mail_order_to_stockiest_html = mail_order_to_stockiest_html.replace("|*order_rows*|",orders_html)
-
-	html_part = MIMEText(mail_order_to_stockiest_html, 'html')
-	msg_to_stockiest.attach(html_part)
-
-	send_mail(msg_to_stockiest.as_string(), get_user_email_with_user_id(session['user_id']))
-	return "Successfully placed your order.."
+			html_part = MIMEText(notify_applicant_for_application.replace("|*applicant_name*|", applicant_name), 'html')
+			msg_to_applicant.attach(html_part)
+			send_mail(msg_to_applicant.as_string(), applicant_email)
+			
+			return render_template('careers_portal.html', roles = roles, application_status = "Applied successfully!!")
+	except:
+		return render_template('careers_portal.html', roles = roles, application_status = "Internl Server Error!")
+	return render_template('careers_portal.html', roles = roles, application_status = application_status)
 
 if __name__ == '__main__':
 	app.run(debug = True)
