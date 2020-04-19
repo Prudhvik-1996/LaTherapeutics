@@ -1,1 +1,3 @@
-web: gunicorn wsgi:app
+web: gunicorn app:app
+release: python manage.py db upgrade
+
