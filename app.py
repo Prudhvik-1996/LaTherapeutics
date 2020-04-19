@@ -18,6 +18,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'LATHERAPEUTICS'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///latherapeutics.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://lksfjrtjvwuoqv:456783dafcfde6eb1dcff07f6c1cdfbc6364114d113a619dddfbe1ceb508cac8@ec2-52-6-143-153.compute-1.amazonaws.com:5432/db7eph6jdmin5g'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
