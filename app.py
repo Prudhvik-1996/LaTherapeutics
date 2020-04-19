@@ -351,5 +351,4 @@ def get_careers_portal(application_status = ""):
 	return render_template('careers_portal.html', roles = roles, application_status = application_status)
 
 if __name__ == '__main__':
-	# app.run(debug = True, host='192.168.0.105', threaded = True)
 	app.run()
