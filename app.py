@@ -198,7 +198,6 @@ def get_user_email_with_user_id(user_id):
         return details[0].f_email
     return None
 
-
 def get_user_display_name_with_user_id(user_id):
     details = stockiest_login_details.query.filter_by(f_user_id=user_id).all()
     if(len(details) > 0):
