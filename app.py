@@ -174,6 +174,7 @@ db.create_all()
 
 def authenticate_user(user_id, password):
 	print(stockiest_login_details.query.all())
+	
 	details = stockiest_login_details.query.filter_by(f_user_id = user_id).all()
 	if(len(details)>0):
 		if details[0].f_password == password:
