@@ -48,6 +48,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <style type="text/css">
@@ -223,14 +224,10 @@
 
   .products-screen {
     padding-top: 10%;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-bottom: 10%;
-    margin-top: 10px;
     /*position: fixed;*/
     height: 100%;
     width: 100%;
-    background-image: url("https://github.com/Prudhvik-1996/LaTherapeutics/blob/master/images/my_products_bg.gif?raw=true");
+    background-image: url("https://66.media.tumblr.com/28ad9c7f8687841dd8c233e263315aa6/tumblr_n1kecnnkGZ1relaado4_r1_500.gifv");
     background-repeat: no-repeat;
     background-size:cover;
     background-attachment: fixed;
@@ -377,7 +374,6 @@
   }
 
   .product_name {
-    background-color: #220075;
     background-color: #4242EE;
     color: white;
     font-size: 28px;
@@ -528,205 +524,20 @@
       var product_btns = document.getElementsByClassName('product_btn')
       for (var i = 0; i < product_btns.length; i++) {
         var product_btn = product_btns[i];
-        product_btn.style.fontSize = "22px";
+        product_btn.style.fontSize = "21px";
         product_btn.style.letterSpacing = "1.5px";
       }
+      
+      // var my_products_screen = document.getElementsByClassName('products-screen');
+      // my_products_screen[0].style.backgroundImage = "url(\"https://github.com/Prudhvik-1996/LaTherapeutics/blob/master/images/my_products_bg.gif?raw=true\")";
     } else {
       w = w*0.7;
       h = h*0.8;
       var intro_screen = "<img src=\"https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/1_MAIN_PAGE.jpg\" style=\"width:"+w+"px; height:"+h+"px\">"
       document.getElementById("intro-screen").innerHTML = intro_screen;
+      var x = document.getElementById('products-screen').innerHTML;
+      document.getElementById('products-screen').innerHTML = "<img class=\"sticky-left\" src=\"https://media.tenor.com/images/5bcaf887491b9e34a1e2038073f3c729/tenor.gif\"><img class=\"sticky-right\" src=\"https://media.tenor.com/images/5bcaf887491b9e34a1e2038073f3c729/tenor.gif\">" + x;
     }
-  }
-
-  function open_product_description_modal(id) {
-    var title = "";
-    var description = "";
-    var modal = document.getElementById("product_description");
-    var img = "";
-    var local_img_path = "/Users/prudhvikchirunomula/Desktop/MSIT_Tasks/La/LaTherapeutics/images/";
-    var url_img_path = "https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/";
-    switch (id) {
-      case "ABC_ZYME_DROPS":
-        img = "<img src='"+url_img_path+"ABC_ZYME_DROPS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:50%;'><br><br>";
-        title = "ABC ZYME Drops";
-        description = "Alpha Amylase (1:800) 20mg + Papain 10mg + Anise Oil 2mg + Dil Oil 2mg";
-        break;
-      case "AMNILARG":
-        img = "<img src='"+url_img_path+"AMNILARG.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:50%;'><br><br>";
-        title = "Amnilarg Satchets"
-        description = "L Arginine 3gm + Proanthocyanidins 75mg + Methylcobalamin 750mg + Zinc 10mg + <br>Folic Acid 1.5mg";
-        break;
-      case "AMS_FAST_GEL":
-        img = "<img src='"+url_img_path+"AMS_FAST_GEL.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:100%;'><br><br>";
-        title = "AMS FAST GEL";
-        description = "Aluminium Hydroxide 250mg + Magnesium Hydroxide 250mg + Dimethicone 50mg + Sorbitol 1.2g";
-        break;
-      case "AP_DOL":
-        img = "<img src='"+url_img_path+"AP_DOL.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "AP DOL Tablets";
-        description = "Aceclofenac 100 mg + Paracetamol 325mg";
-        break;
-      case "CALCITRA_TAB":
-        img = "<img src='"+url_img_path+"CALCITRA_TAB.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "CALCITRA Tablets";;
-        description = "Calcium Citrate 1000mg + Vit D3 200 IU + Zinc 4mg, Magnesium 100mg";
-        break;
-      case "DELCOLD_DROPS":
-        img = "<img src='"+url_img_path+"DELCOLD_DROPS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:50%;'><br><br>";
-        title = "DELCOLD Drops";
-        description = "Phenylephrine hydrochloride 5mg + Chlorpheniramine maleate 2mg";
-        break;
-      case "DELCOLD_SYRUP":
-        img = "<img src='"+url_img_path+"DELCOLD_SYRUP.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:40%; height: 400px;'><br><br>";
-        title = "DELCOLD Syrup";
-        description = "Phenylephrine hydrochloride 5mg + Chlorpheniramine maleate 2mg";
-        break;
-      case "DELCOLD_P_SUSP":
-        img = "<img src='"+url_img_path+"DELCOLD_SYRUP.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:40%; height: 400px;'><br><br>";
-        title = "DELCOLD-P Susp";
-        description = "Phenylephrine hydrochloride 50mg + Chlorpheniramine maleate 2mg + Paracetamol 250mg";
-        break;
-      case "GPR_20":
-        img = "<img src='"+url_img_path+"GPR_20.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "GPR 20 Tablets";
-        description = "Rabeprazole 20mg";
-        break;
-      case "GPR_DSR":
-        img = "<img src='"+url_img_path+"GPR_DSR.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "GPR DSR Capsules";
-        description = "Rabiprazole 20mg, Domperidone 30mg SR";
-        break;
-      case "LA_20_TABLETS":
-        img = "<img src='"+url_img_path+"LA_20_TABLETS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "LA 20 Tablets";
-        description = "Rabeprazole 20mg";
-        break;
-      case "LA_FER_XT_DROPS":
-        img = "<img src='"+url_img_path+"LA_FER_XT_DROPS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:40%; height: 400px;'><br><br>";
-        title = "LA FER XT Drops";
-        description = "Ferrous Ascor (Equ to Elemental IRON) 10 mg + Folic Acid 100mcg Drops";
-        break;
-      case "LA_FER_XT_TABLETS":
-        img = "<img src='"+url_img_path+"LA_FER_XT_TABLETS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "LA FER XT Tablets";
-        description = "Ferrous Ascor (Equivalent to Elemental IRON 100 mg, Folic Acid 1.5mg + Vit B12 15mcg + Zinc 61.8 mg";
-        break;
-      case "NEW_CET_M_SUSPENSION":
-        img = "<img src='"+url_img_path+"NEW_CET_M_SUSPENSION.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:40%; height: 400px;'><br><br>";
-        title = "NEW CET-M Susp";
-        description = "Levocetirizine 5 mg + Montelukast 10mg Syrup";
-        break;
-      case "NEW_CET_TABLETS":
-        img = "<img src='"+url_img_path+"NEW_CET_TABLETS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "NEW CET M Tablets";
-        description = "Levocetirizine 5 mg + Montelukast 10mg";
-        break;
-      case "NIMDAY":
-        img = "<img src='"+url_img_path+"NIMDAY.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "NIMDAY Tablets";
-        description = "Nimesulide 100 mg";
-        break;
-      case "NUTRILA_DROPS":
-        img = "<img src='"+url_img_path+"NUTRILA_DROPS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "NUTRILA Drops";
-        description = "Multivitamins + Minerals + Trace Elements + Anti Oxidents";
-        break;
-      case "NUTRILA_MOM":
-        img = "<img src='"+url_img_path+"NUTRILA_MOM.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:90%; height: 400px;'><br><br>";
-        title = "NUTRILA MOM Powder";
-        description = "Multivitamins + Minerals + Trace Elements + Anti Oxidents + DHA";
-        break;
-      case "NUTRILA_TABLETS":
-        img = "<img src='"+url_img_path+"NUTRILA_TABLETS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "NUTRILA Tablets";
-        description = "Multivitamins + Minerals + Trace Elements + Anti Oxidents etc";
-        break;
-      case "ONDA":
-        img = "<img src='"+url_img_path+"ONDA.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "ONDA 4mg Tablets";
-        description = "Ondansetron 4 mg";
-        break;
-      case "PF_650":
-        img = "<img src='"+url_img_path+"PF_650.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "PF 650mg Tablets";
-        description = "Paracetamol 650";
-        break;
-      case "PROCORIL_LS_DROPS":
-        img = "<img src='"+url_img_path+"PROCORIL_LS_DROPS.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:50%;'><br><br>";
-        title = "PROCORIL-LS Drops";
-        description = "Levosalbutamol 0.25mg + Ambroxyl 7.5mg  + Guaiphensine 12.5mg Drops";
-        break;
-      case "PROCORIL_LS_SYP":
-        img = "<img src='"+url_img_path+"PROCORIL_LS_SYP.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "PROCORIL-LS Syrup";
-        description = "Levosalbutamol 1mg + Ambroxyl 30mg + Guaiphensine 50mg";
-        break;
-      case "PROCORIL_SYP":
-        img = "<img src='"+url_img_path+"PROCORIL_SYP.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "PROCORIL Syrup";
-        description = "Ambroxyl 15mg + Terbutaline 1.5mg + Guaiphenesine 50mg + Menthol 1mg";
-        break;
-      case "QUADRIS_7":
-        img = "<img src='"+url_img_path+"QUADRIS_7.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "QUADRIS 7 Tablets";
-        description = "Cissus Quadrangularis 500mg + Calcium Citrate Equ Ele Calcium 500 + Vit K2-7 45mcg + Calcitriol 0.25mcg + Methylcobalamin 750 + Folic Acid 0.75 + Zinc 62.8mg";
-        break;
-      case "SUCRACID":
-        img = "<img src='"+url_img_path+"SUCRACID.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "SUCRACID Susp";
-        description = "Sucralfate 500mg";
-        break;
-      case "SUCRACID_O":
-        img = "<img src='"+url_img_path+"SUCRACID_O.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "SUCRACID-O Susp";
-        description = "Sucralfate 500mg + Oxetacaine 10mg";
-        break;
-      case "THYROIN_100":
-        img = "<img src='"+url_img_path+"THYROIN_100.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "THYROIN 100";
-        description = "Thyroxine Sodium 100 mcg";
-        break;
-      case "THYROIN_12.5":
-        img = "<img src='"+url_img_path+"THYROIN_12.5.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "THYROIN 12.5";
-        description = "Thyroxine Sodium 12.5 mcg";
-        break;
-      case "THYROIN_25":
-        img = "<img src='"+url_img_path+"THYROIN_25.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "THYROIN 25";
-        description = "Thyroxine Sodium 25 mcg";
-        break;
-      case "THYROIN_50":
-        img = "<img src='"+url_img_path+"THYROIN_50.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "THYROIN 50";
-        description = "Thyroxine Sodium 50 mcg";
-        break;
-      case "THYROIN_75":
-        img = "<img src='"+url_img_path+"THYROIN_75.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:70%;'><br><br>";
-        title = "THYROIN 75";
-        description = "Thyroxine Sodium 75 mcg";
-        break;
-      case "VMIN_400":
-        img = "<img src='"+url_img_path+"VMIN_400.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:50%;'><br><br>";
-        title = "Vmin D3 400 Drops";
-        description = "Vitamin D3 400 IU";
-        break;
-      case "VMIN_800":
-        img = "<img src='"+url_img_path+"VMIN_800.jpg' alt='Avatar' style='text-align: center; vertical-align: middle; width:50%;'><br><br>";
-        title = "Vmin D3 800 Drops";
-        description = "Vitamin D3 800 IU";
-        break;
-      default:
-        img = "...";
-        title = "...";
-        description = "...";
-        break;
-    }
-    document.getElementById("modal_title").innerHTML = title;
-    document.getElementById("product_img").innerHTML = img;
-    document.getElementById("product_composition").innerHTML = description;
-    modal.style.display = "block";
   }
 
   $(document).ready(function(){
@@ -886,4 +697,6 @@
       </div>
     </div>
   </div>
+
+  <!-- <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> -->
 </body>

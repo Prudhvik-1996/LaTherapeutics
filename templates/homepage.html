@@ -11,36 +11,80 @@
     modal.style.display = "block";
   }
 
-  window.onclick = function(event) {
-    var modal = document.getElementById("product_description");
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-
   window.onmouseover = function(event) {
     var modal = document.getElementById("product_description");
     if (event.target == modal) {
       modal.style.display = "none";
     }
   }
+
+  function get_rx_img() {
+    document.getElementById('rx_img').innerHTML = "<img src=\"https://media.tenor.com/images/5bcaf887491b9e34a1e2038073f3c729/tenor.gif\" style=\"margin: 20px;position: absolute; top: 10px; left: 10px; font-size: 18px; width: 150px; height: 210px; object-position: 0 0; position: fixed;\">";
+  }
+
+  function close_modal() {
+    console.log("helloooov");
+    var modal = document.getElementById('product_description');
+    modal.style.display = "none";
+  }
 </script>
   
+<style type="text/css">
+  img.sticky-left {
+    position: -webkit-sticky;
+    position: sticky;
+    float: left;
+    top: 10%;
+    left: 10px;
+    width: 120px;
+    height: 150px;
+    padding: 0%;
+    margin-top: 0px;
+
+  }
+
+  img.sticky-right {
+    position: -webkit-sticky;
+    position: sticky;
+    float: right;
+    top: 10%;
+    right: 10px;
+    width: 120px;
+    height: 150px;
+    padding: 0%;
+    margin-top: 0px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+
+  .products_lists {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+    margin-top: 10px;
+  }
+
+  #closemodal {
+    font-size: 28px;
+    color: white;
+    float: right;
+    background-color: #4242EE;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-color: #4242EE;
+  }
+</style>
+
 <div class="container intro-screen" style="width: 100%;" id = "intro-screen">
-  <!-- <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/1_MAIN_PAGE.jpg" style="width:80%;"> -->
-  <!-- <div class="top-right">
-    <p class="first-screen-title">
-      <b id = "L-in-la">L</b>ife is<br>
-      <b id = "A-in-la">A</b>ctive with<br>
-      <b id = "L-in-la">L</b><b id = "A-in-la">A</b> Therapeutics
-    </p>
-  </div> -->
 </div>
 
 <div id="product_description" class="modal">
   <div class="modal-content">
-    <div class="row product_name modal_title" id="modal_title">
-      
+    <div class="row product_name modal_title">
+      <span id="modal_title"></span>
+      <span><button id="closemodal" onclick="close_modal()">x</button></span>
     </div>
     <br><br>
     <div class='row img_desc'>
@@ -89,19 +133,23 @@
   </div>
 </div>
 
-<div class="row col-md-12 products-screen" style="width: 100%;" id = "products-screen" align="center">
-  <h1 style="text-align: center; font-size: 64px; padding-bottom: 5%; color: white;">Our Products</h1>
+<!-- <img src="https://media.tenor.com/images/5bcaf887491b9e34a1e2038073f3c729/tenor.gif" style="margin: 0px;"> -->
+
+<div class="row col-md-12 products-screen" style="width: 100%;" id = "products-screen">
+
+  <h1 style="text-align: center; font-size: 64px; padding-bottom: 5%; color: white;">Our Products</h1>  
   
+  <div class="products_lists">
+    {% for product in products %}
+    <div class="products-row">
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_modal('{{ product.f_product_name }}', '{{ product.f_display_name }}', '{{ product.f_img_url }}', '{{ product.f_display_caption }}')" onclick="open_product_modal('{{ product.f_product_name }}', '{{ product.f_display_name }}', '{{ product.f_img_url }}', '{{ product.f_display_caption }}')" id="{{ product.f_product_name }}"><span>{{ product.f_display_name }}</span></button>
+      </div>
 
-  {% for product in products %}
-  <div class="products-row">
-    
-    <div class="col-md-6">
-      <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_modal('{{ product.f_product_name }}', '{{ product.f_display_name }}', '{{ product.f_img_url }}', '{{ product.f_display_caption }}')" onclick="open_product_modal('{{ product.f_product_name }}', '{{ product.f_img_url }}', '{{ product.f_display_caption }}')" id="{{ product.f_product_name }}"><span>{{ product.f_display_name }}</span></button>
     </div>
-
+    {% endfor %}
   </div>
-  {% endfor %}
   <br><br><br><br>
 </div>
 
