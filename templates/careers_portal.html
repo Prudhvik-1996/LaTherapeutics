@@ -10,13 +10,10 @@
 	td {
 		border: 1px solid black;
 		text-align: left;
-		padding: 8px;
 	}
 	th {
 		border: 1px solid black;
 		text-align: left;
-		padding: 8px;
-		width: 30%;
 	}
 	tr:nth-child(even) {
 		background-color: #E8E8E8;
@@ -26,18 +23,15 @@
 		font-weight: normal;
 		font-size: 18px;
 		background-color: #F6F6F6;
-		width: 50%;
 	}
 
 	.order_form_heading {
 		text-align: center;
-		padding: 10px;
 		/*margin: 2px;*/
 	}
 
 	.submit_file {
 		align-content: right;
-		padding-left: 75%;
 	}
 
 	.submit_file_upload {
@@ -51,8 +45,6 @@
 	}
 
 	.careers-screen {
-		padding: 30px;
-		/*margin: 10px;*/
     background-repeat: no-repeat;
     background-size:cover;
     background-attachment: fixed;
@@ -81,7 +73,7 @@
 	}
 </script>
 
-	<div class="row careers-screen" style="width: 100%;" id = "careers-screen">
+	<div class="careers-screen" style="width: 100%;" id = "careers-screen">
     <h1 style="text-align: center; font-size: 64px; padding-bottom: 5%;">Careers Portal</h1>
 
     {% if application_status != "" %}
@@ -90,32 +82,32 @@
 
     {% else %}
 
-    	<label>Name:</label><br>
-    	<input type="text" id="applicant_name" name="applicant_name" onchange="fill_respective_fields()">
+    	<label style="padding-left: 25px;">Name:</label><br>
+    	<input style="margin-left: 25px;" type="text" id="applicant_name" name="applicant_name" onchange="fill_respective_fields()">
     	<br>
-    	<label>Email:</label><br>
-    	<input type="text" id="applicant_email" name="applicant_email" onchange="fill_respective_fields()">
+    	<label style="padding-left: 25px;">Email:</label><br>
+    	<input style="margin-left: 25px;" type="text" id="applicant_email" name="applicant_email" onchange="fill_respective_fields()">
     	<br>
-    	<label>Mobile:</label><br>
-    	<input type="text" id="applicant_mobile" name="applicant_mobile" onchange="fill_respective_fields()">
+    	<label style="padding-left: 25px;">Mobile:</label><br>
+    	<input style="margin-left: 25px;" type="text" id="applicant_mobile" name="applicant_mobile" onchange="fill_respective_fields()">
     	<br><br>
 
 	    <table id="products_table">
-	    	<tr style="font-weight: bold; background-color: #4242EE; color: white;">
-	    		<td style="text-align: center;">
+	    	<tr style="font-weight: bold; background-color: #4242EE; color: white;" class="row order_rows col-md-12">
+	    		<td style="text-align: center;" class="col-md-4">
 	    			Role
 	    		</td>
-	    		<th style="text-align: center;">
+	    		<th style="text-align: center;" class="col-md-8">
 	    			
 	    		</th>
 	    	</tr>
 
 	    	{% for role in roles %}
-	    		<tr class="order_rows">
-	    			<td>
+	    		<tr class="row order_rows col-md-12">
+	    			<td class="col-md-4">
 	    				{{ role }}
 	    			</td>
-	    			<th>
+	    			<th class="col-md-8">
 				      <form action = "/careers_portal" method = "post" enctype="multipart/form-data">
 				      	<div>
 					        <input class="upload_file" type="file" name="file"/>  
