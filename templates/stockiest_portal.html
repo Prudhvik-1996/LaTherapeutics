@@ -6,6 +6,7 @@
 		font-family: arial, sans-serif;
 		border-collapse: collapse;
 		width: 60%;
+    margin: 15px;
 	}
 	td {
 		border: 1px solid black;
@@ -34,6 +35,14 @@
 		padding: 10px;
 		/*margin: 2px;*/
 	}
+
+  .stockiest-screen {
+    margin: 10px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    font-size: 24px;
+  }
 </style>
 
 <script type="text/javascript">
@@ -89,7 +98,7 @@
   });
 </script>
 
-  <div class="row about-screen" style="width: 100%;" id = "stockiest-screen">
+  <div class="row stockiest-screen" style="width: 100%;" id = "stockiest-screen">
     <h1 style="text-align: center; font-size: 64px; padding-bottom: 5%;">Stockiest Portal</h1>
 
     {% if not session.logged_in %}
@@ -116,7 +125,7 @@
     {% if session.logged_in %}
     	<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
     <div class="row col-md-12">
-      <button id = "stockiest_logout_btn" style="background-color: #4CAF50; color: white; padding: 10px 10px; margin: 8px 0; border: none; cursor: pointer; width: 10%; position: absolute; top: 8px; right: 16px; font-size: 18px;">Logout</button>
+      <button id = "stockiest_logout_btn" style="background-color: #4CAF50; color: white; width: 90%">Logout</button>
     </div>
     <br><br>
 
@@ -161,7 +170,7 @@
     </table>
 
     <div class="row col-md-12">
-      <button id = "stockiest_make_order_btn" style="background-color: #4CAF50; color: white; padding: 10px 10px; margin: 8px 0; border: none; cursor: pointer; width: 20%; position: absolute; top: 8px; right: 16px; font-size: 18px;">Place Order</button>
+      <button id = "stockiest_make_order_btn" style="background-color: #4CAF50; color: white; width: 90%; margin-bottom: 50px;">Place Order</button>
     </div>
     
 
