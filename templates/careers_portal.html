@@ -5,7 +5,6 @@
 	table {
 		font-family: arial, sans-serif;
 		border-collapse: collapse;
-		width: 60%;
 		align-content: center;
 	}
 	td {
@@ -50,6 +49,15 @@
 	.upload_file {
 		font-size: 12px;
 	}
+
+	.careers-screen {
+		padding: 30px;
+		/*margin: 10px;*/
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    font-size: 24px;
+  }
 </style>
 
 
@@ -73,7 +81,7 @@
 	}
 </script>
 
-	<div class="row about-screen" style="width: 100%;" id = "stockiest-screen">
+	<div class="row careers-screen" style="width: 100%;" id = "careers-screen">
     <h1 style="text-align: center; font-size: 64px; padding-bottom: 5%;">Careers Portal</h1>
 
     {% if application_status != "" %}
