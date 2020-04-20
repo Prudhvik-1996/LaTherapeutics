@@ -5,29 +5,20 @@
 	table {
 		font-family: arial, sans-serif;
 		border-collapse: collapse;
-		align-content: center;
+    margin: 15px;
 	}
 	td {
 		border: 1px solid black;
 		text-align: left;
+		padding: 8px;
 	}
 	th {
 		border: 1px solid black;
 		text-align: left;
+		padding: 8px;
 	}
 	tr:nth-child(even) {
 		background-color: #E8E8E8;
-	}
-
-	.order_qty {
-		font-weight: normal;
-		font-size: 18px;
-		background-color: #F6F6F6;
-	}
-
-	.order_form_heading {
-		text-align: center;
-		/*margin: 2px;*/
 	}
 
 	.submit_file {
@@ -49,6 +40,10 @@
     background-size:cover;
     background-attachment: fixed;
     font-size: 24px;
+  }
+
+  #products_table {
+  	width: 50%;
   }
 </style>
 
@@ -93,32 +88,30 @@
     	<br><br>
 
 	    <table id="products_table">
-	    	<tr style="font-weight: bold; background-color: #4242EE; color: white;" class="row order_rows col-md-12">
-	    		<td style="text-align: center;" class="col-md-4">
+	    	<tr style="font-weight: bold; background-color: #4242EE; color: white;">
+	    		<td style="text-align: center;">
 	    			Role
 	    		</td>
-	    		<th style="text-align: center;" class="col-md-8">
+	    		<th style="text-align: center;">
 	    			
 	    		</th>
 	    	</tr>
 
 	    	{% for role in roles %}
-	    		<tr class="row order_rows col-md-12">
-	    			<td class="col-md-4">
+	    		<tr class="order_rows">
+	    			<td>
 	    				{{ role }}
 	    			</td>
-	    			<th class="col-md-8">
-				      <form action = "/careers_portal" method = "post" enctype="multipart/form-data">
-				      	<div>
-					        <input class="upload_file" type="file" name="file"/>  
-				      	</div> 
-				        <div class="submit_file">
+	    			<th>
+	    				<form action = "/careers_portal" method = "post" enctype="multipart/form-data">
+				      	<div style="width: 150px;">
+					        <input class="upload_file" type="file" name="file" style="width: 100px;" />  
 					        <input class="submit_file_upload" type = "submit" value="Upload">				        	
-				        </div>
-					    	<input type="hidden" name="applicant_name" class="applicant_form_name">
-					    	<input type="hidden" name="applicant_email" class="applicant_form_email">
-					    	<input type="hidden" name="applicant_mobile" class="applicant_form_mobile">
-					    	<input type="hidden" name="applicant_field" class="applicant_form_field" value="{{ role }}">
+						    	<input type="hidden" name="applicant_name" class="applicant_form_name">
+						    	<input type="hidden" name="applicant_email" class="applicant_form_email">
+						    	<input type="hidden" name="applicant_mobile" class="applicant_form_mobile">
+						    	<input type="hidden" name="applicant_field" class="applicant_form_field" value="{{ role }}">
+						    </div>
 					    </form>
 	    			</th>
 	    		</tr>
