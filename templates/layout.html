@@ -503,9 +503,47 @@
     color: red;
   }
 
+  .loader {
+    position: fixed;
+    z-index: 99;
+    top: 0%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  }
+
+  .loader > img {
+    width: 300px;
+  }
+
+  .loader.hidden {
+    animation: fadeOut is;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fadeOut {
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
 </style>
 
 <script type="text/javascript">
+  window.addEventListener("load", function () {
+    var miliseconds = 2000;
+    var currentTime = new Date().getTime();
+    while (currentTime + miliseconds >= new Date().getTime()) {
+    }
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden";
+  })
+
   function reload() {
     var w = window.outerWidth;
     var h = window.outerHeight;
@@ -608,6 +646,10 @@
       </div>
     </div>
   </nav>
+
+  <div class="loader">
+    <img src="https://www.tmogroup.asia/wp-content/uploads/2018/05/001gif.gif?x65796" alt="Loading..">
+  </div>
 
   {% block body %}
 
