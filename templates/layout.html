@@ -603,7 +603,12 @@
         var paragraph = paragraphs[i];
         paragraph.style.fontSize = "12px";
       }
-      
+      var highlights = document.getElementsByClassName('highlight-about')
+      for (var i = 0; i < highlights.length; i++) {
+        var highlight = highlights[i];
+        highlight.style.fontSize = "12px";
+      }
+
       var intro_screen = "<img src=\"https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/1_MAIN_PAGE.jpg\" style=\"width:100%; height:100%\">"
       // var my_products_screen = document.getElementsByClassName('products-screen');
       // my_products_screen[0].style.backgroundImage = "url(\"https://github.com/Prudhvik-1996/LaTherapeutics/blob/master/images/my_products_bg.gif?raw=true\")";
