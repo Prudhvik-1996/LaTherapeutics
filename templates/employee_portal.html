@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<style>
+	table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 60%;
+    margin: 15px;
+	}
+	td {
+		border: 1px solid black;
+		text-align: left;
+		padding: 8px;
+	}
+	th {
+		border: 1px solid black;
+		text-align: left;
+		padding: 8px;
+		width: 40%;
+	}
+	tr:nth-child(even) {
+		background-color: #E8E8E8;
+	}
+
+	.order_qty {
+		font-weight: normal;
+		font-size: 18px;
+		background-color: #F6F6F6;
+		width: 50%;
+	}
+
+	.order_form_heading {
+		text-align: center;
+		padding: 10px;
+		/*margin: 2px;*/
+	}
+
+  .stockiest-screen {
+    margin: 10px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    font-size: 24px;
+  }
+</style>
+
+<script type="text/javascript">
+</script>
+
+  <div class="row stockiest-screen" style="width: 100%;" id = "stockiest-screen">
+    <h1 style="text-align: center; font-size: 64px; padding-bottom: 5%;">Employee Portal</h1>
+
+    {% if not session.logged_in %}
+    {% if login_comments %}
+    <div class="login_comments">
+    	{{ login_comments }}
+    </div>
+    {% endif %}
+    <div class="login_container">
+      <label for="login_user_id"><b>User Id</b></label>
+      <br>
+      <input type="text" placeholder="Enter User Id" name="login_user_id" id = "login_user_id" required style="  width: 60%; padding: 12px 12px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; box-sizing: border-box; align-content: center;">
+      <br>
+      <label for="login_password"><b>Password</b></label>
+      <br>
+      <input type="password" placeholder="Enter Password" name="login_password" id = "login_password" required style="  width: 60%; padding: 12px 12px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; box-sizing: border-box;">
+      <br>
+      <br>
+      <button id = "stockiest_login_btn" style="background-color: #4CAF50; color: white; padding: 14px 20px; margin: 8px 0; border: none; cursor: pointer; width: 60%;">Login</button>
+      <br>
+    </div>
+
+    {% endif %}
+    {% if session.logged_in %}
+    	<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+    <div class="row col-md-12">
+      <button id = "stockiest_logout_btn" style="background-color: #4CAF50; color: white; width: 90%">Logout</button>
+    </div>
+    <br><br>
+
+    <h2 class="row col-md-12 order_form_heading">
+    	Daily Reporting:
+    </h2>
+
+    <div class="row col-md-12">
+    	Hello {{ user_id }}.
+    	<br>
+    	<br>
+      To report your daily status, <a href="https://docs.google.com/spreadsheets/d/1BLwDtR5v8WjfKK4S-jQFSENlChVF1G694EUhUGm8yOc/edit?usp=drivesdk">click here</a>
+    </div>
+    
+
+    {% endif %}
+
+  </div>
+
+
+{% endblock %}

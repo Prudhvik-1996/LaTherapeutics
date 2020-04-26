@@ -13,6 +13,30 @@ import json
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
+'''
+Google Sheets API
+
+Client Id:
+178188069250-hnhil41bs98r0baitv47m1eajv2fpbmi.apps.googleusercontent.com
+
+Client Secret:
+VSMiIWRAq9tAI-R1Am-JKDL_
+
+API Key:
+AIzaSyAESSt8WDHA9VVhbmdVQVSqpZRnHoGG3As
+
+https://github.com/Prudhvik-1996/LaTherapeutics
+
+GitHub Credentials:
+Prudhvik-1996
+p21071996k
+
+Heroku Credentials:
+prudhvik.1996@gmail.com
+A*1lavanya
+
+'''
+
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'LATHERAPEUTICS'
@@ -383,6 +407,13 @@ def get_careers_portal(application_status=""):
         return render_template('careers_portal.html', roles=roles, application_status="Internl Server Error!")
     return render_template('careers_portal.html', roles=roles, application_status=application_status)
 
+@app.route('/employee_portal', methods=['GET'])
+def get_employee_portal():
+    user_id = ""
+    if session and session['logged_in']:
+        user_id = session['user_id']
+    return render_template('employee_portal.html', user_id=user_id)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True, host="192.168.0.106", port = "5000")
+    app.run(debug = True)
