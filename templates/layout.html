@@ -195,8 +195,8 @@
   }
 
   .paragraph {
-    margin-bottom: 2%;
-    text-align: left;
+    margin-bottom: 5%;
+    text-align: justify;
   }
 
   #L-in-la {
@@ -598,17 +598,23 @@
         product_btn.style.fontSize = "12px";
         product_btn.style.letterSpacing = "1px";
       }
+      var paragraphs = document.getElementsByClassName('paragraph')
+      for (var i = 0; i < paragraphs.length; i++) {
+        var paragraph = paragraphs[i];
+        paragraph.style.fontSize = "12px";
+      }
       
+      var intro_screen = "<img src=\"https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/1_MAIN_PAGE.jpg\" style=\"width:100%; height:100%\">"
       // var my_products_screen = document.getElementsByClassName('products-screen');
       // my_products_screen[0].style.backgroundImage = "url(\"https://github.com/Prudhvik-1996/LaTherapeutics/blob/master/images/my_products_bg.gif?raw=true\")";
     } else {
       w = w*0.7;
       h = h*0.8;
       var intro_screen = "<img src=\"https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/1_MAIN_PAGE.jpg\" style=\"width:"+w+"px; height:"+h+"px\">"
-      document.getElementById("intro-screen").innerHTML = intro_screen;
       var x = document.getElementById('products-screen').innerHTML;
       // document.getElementById('products-screen').innerHTML = "<img class=\"sticky-left\" src=\"https://media.tenor.com/images/5bcaf887491b9e34a1e2038073f3c729/tenor.gif\"><img class=\"sticky-right\" src=\"https://media.tenor.com/images/5bcaf887491b9e34a1e2038073f3c729/tenor.gif\">" + x;
     }
+    document.getElementById("intro-screen").innerHTML = intro_screen;
   }
 
   $(document).ready(function(){
@@ -671,8 +677,8 @@
   <nav class="navbar navbar-fixed-top" id = "nav">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".collapse">
-          <span class="glyphicon glyphicon-option-vertical"></span>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".collapse" style="text-align: left; margin-right: 0px; padding-right: 0px;">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
         <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/LOGO_LA.PNG" height="50px" width="200px">
       </div>
@@ -682,7 +688,7 @@
           <li><a href="/#intro-screen"><span class="glyphicon glyphicon-home"></span> Home</a></li>
           <li><a href="/#about-screen"><span class="glyphicon glyphicon-user"></span> About</a></li>
           <li><a href="/#products-screen"><span class="glyphicon glyphicon-tasks"></span> Our Products</a></li>
-          <!-- <li><a href="contact.html"><span class="glyphicon glyphicon-user"></span> Employees Portal</a></li> -->
+          <!-- <li><a href="/employee_portal"><span class="glyphicon glyphicon-user"></span> Employees Portal</a></li> -->
           <li><a href="/careers_portal"><span class="fa fa-handshake-o"></span> Careers</a></li>
           <li><a href="/stockiest_portal"><span class="glyphicon glyphicon-briefcase"></span> Stockiest Portal</a></li>
           <li><a href="#contact-screen"><span class="glyphicon glyphicon-earphone"></span> Contact</a></li>
