@@ -181,14 +181,18 @@ class product_details(db.Model):
     f_create_time = db.Column(DateTime(), default=datetime.datetime.now())
     f_last_updated_time = db.Column(
         DateTime(), default=datetime.datetime.now())
+    f_display_name_head = db.Column(db.String(1000))
+    f_display_name_tail = db.Column(db.String(1000))
 
-    def __init__(self, f_product_name, f_display_name, f_product_units, f_display_caption, f_img_url, f_create_time=datetime.datetime.now(), f_last_updated_time=datetime.datetime.now()):
+    def __init__(self, f_product_name, f_display_name, f_product_units, f_display_caption, f_img_url, f_display_name_head, f_display_name_tail, f_create_time=datetime.datetime.now(), f_last_updated_time=datetime.datetime.now()):
         self.f_product_name = f_product_name
         self.f_display_name = f_display_name
         self.f_product_units = f_product_units
         self.f_display_caption = f_display_caption
         self.f_img_url = f_img_url
         self.f_password = f_password
+        self.f_display_name_head = f_display_name_head
+        self.f_display_name_tail = f_display_name_tail
         self.f_create_time = f_create_time
 
     def __repr__(self):

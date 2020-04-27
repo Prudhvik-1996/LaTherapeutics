@@ -139,8 +139,12 @@
     {% for product in products %}
     <div class="products-row">
       
-      <div class="col-md-6">
-        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_modal('{{ product.f_product_name }}', '{{ product.f_display_name }}', '{{ product.f_img_url }}', '{{ product.f_display_caption }}')" onclick="open_product_modal('{{ product.f_product_name }}', '{{ product.f_display_name }}', '{{ product.f_img_url }}', '{{ product.f_display_caption }}')" id="{{ product.f_product_name }}"><span>{{ product.f_display_name }}</span></button>
+      <div class="col-md-6" style="align-content: center; text-align: center;">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_modal('{{ product.f_product_name }}', '{{ product.f_display_name }}', '{{ product.f_img_url }}', '{{ product.f_display_caption }}')" onclick="open_product_modal('{{ product.f_product_name }}', '{{ product.f_display_name }}', '{{ product.f_img_url }}', '{{ product.f_display_caption }}')" id="{{ product.f_product_name }}">
+            <span class = "product_name_head">{{ product.f_display_name_head }}</span>
+            <br>
+            <span class = "product_name_tail"><i>{{ product.f_display_name_tail }}</i></span>
+          </button>
       </div>
 
     </div>

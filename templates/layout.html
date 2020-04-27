@@ -389,7 +389,7 @@
   }
 
   .product_btn {
-    width: 85%;
+    width: 60%;
     /*background-color: #4242EE;*/
     color: #4242EE;
     font-size: 120%;
@@ -410,6 +410,8 @@
     padding-bottom: 20px;
     box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2);
     letter-spacing: 3px;
+    align-content: center;
+    text-align: center;
     /*overflow: auto;*/
   }
 
@@ -507,7 +509,7 @@
   .loader {
     position: fixed;
     z-index: 99;
-    top: 5%;
+    top: 1%;
     left: 0;
     height: 100%;
     width: 100%;
@@ -561,6 +563,16 @@
     background: black;
   }
 
+  .product_name_head {
+    font-size: 24px;
+    letter-spacing: 3px;
+  }
+
+  .product_name_tail {
+    font-size: 18px;
+    letter-spacing: 1.5px;
+  }
+
 </style>
 
 <script type="text/javascript">
@@ -597,6 +609,18 @@
         var product_btn = product_btns[i];
         product_btn.style.fontSize = "12px";
         product_btn.style.letterSpacing = "1px";
+      }
+      var product_name_heads = document.getElementsByClassName('product_name_head')
+      for (var i = 0; i < product_name_heads.length; i++) {
+        var product_name_head = product_name_heads[i];
+        product_name_head.style.fontSize = "13px";
+        product_name_head.style.letterSpacing = "1px";
+      }
+      var product_name_tails = document.getElementsByClassName('product_name_tail')
+      for (var i = 0; i < product_name_tails.length; i++) {
+        var product_name_tail = product_name_tails[i];
+        product_name_tail.style.fontSize = "9px";
+        product_name_tail.style.letterSpacing = "0px";
       }
       var paragraphs = document.getElementsByClassName('paragraph')
       for (var i = 0; i < paragraphs.length; i++) {
