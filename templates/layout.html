@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>
-    La Therapeutics | Life is Active
+    L. A. Therapeutics | Life is Active
   </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -61,7 +61,9 @@
     padding: 15px 50px;
     border-radius: 10px;
     color: #212F3C;
-    position: relative;
+    position: fixed;
+    width: 100%;
+    z-index: 101;
   }
 
   .navbar-right {
@@ -375,7 +377,7 @@
   }
 
   .product_name {
-    background-color: #4242EE;
+    background-color: #3C8DC5;
     color: white;
     font-size: 28px;
     padding-left: 15px;
@@ -393,12 +395,12 @@
     /*background-color: #4242EE;*/
     color: #4242EE;
     font-size: 120%;
-    background-color: #C4F86F;
+    background-color: #ffff33;
     border-right: 4px solid #4242EE;
     border-bottom: 4px solid #4242EE;
     border-left: 0px;
     border-top: 0px;
-    border-color: #4242EE;
+    border-color: #3C8DC5;
     margin-bottom: 5%;
     margin-top: 5%;
     margin-left: 5%;
@@ -567,12 +569,14 @@
     font-size: 24px;
     letter-spacing: 3px;
     font-family: "CorelDRAW";
+    color: #FF0000;
   }
 
   .product_name_tail {
     font-size: 18px;
     letter-spacing: 1.5px;
     font-family: "CorelDRAW";
+    color: #0000FF;
   }
 
 </style>
@@ -597,6 +601,7 @@
   })
 
   function reload() {
+    carousel();
     var w = window.outerWidth;
     var h = window.outerHeight;
     if (w < h) {
@@ -628,7 +633,7 @@
       var paragraphs = document.getElementsByClassName('paragraph')
       for (var i = 0; i < paragraphs.length; i++) {
         var paragraph = paragraphs[i];
-        paragraph.style.fontSize = "12px";
+        paragraph.style.fontSize = "15px";
       }
       var highlights = document.getElementsByClassName('highlight-about')
       for (var i = 0; i < highlights.length; i++) {
@@ -636,17 +641,17 @@
         highlight.style.fontSize = "12px";
       }
 
-      var intro_screen = "<img src=\"https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/1_MAIN_PAGE.jpg\" style=\"width:100%; height:100%\">"
+      // var intro_screen = "<img src=\"https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/1_MAIN_PAGE.jpg\" style=\"width:100%; height:100%\">"
       // var my_products_screen = document.getElementsByClassName('products-screen');
       // my_products_screen[0].style.backgroundImage = "url(\"https://github.com/Prudhvik-1996/LaTherapeutics/blob/master/images/my_products_bg.gif?raw=true\")";
     } else {
       w = w*0.7;
       h = h*0.8;
-      var intro_screen = "<img src=\"https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/1_MAIN_PAGE.jpg\" style=\"width:"+w+"px; height:"+h+"px\">"
+      // var intro_screen = "<img src=\"https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/1_MAIN_PAGE.jpg\" style=\"width:"+w+"px; height:"+h+"px\">"
       var x = document.getElementById('products-screen').innerHTML;
       // document.getElementById('products-screen').innerHTML = "<img class=\"sticky-left\" src=\"https://media.tenor.com/images/5bcaf887491b9e34a1e2038073f3c729/tenor.gif\"><img class=\"sticky-right\" src=\"https://media.tenor.com/images/5bcaf887491b9e34a1e2038073f3c729/tenor.gif\">" + x;
     }
-    document.getElementById("intro-screen").innerHTML = intro_screen;
+    // document.getElementById("intro-screen").innerHTML = intro_screen;
   }
 
   $(document).ready(function(){
@@ -706,7 +711,7 @@
 
 <body onload="reload()">
 
-  <nav class="navbar navbar-fixed-top" id = "nav">
+  <div class="navbar" id = "nav">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".collapse" style="text-align: left; margin-right: 0px; padding-right: 0px;">
@@ -727,15 +732,19 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </div>
+
 
   <div class="loader">
     <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/loader.gif" alt="Loading..">
   </div>
 
+  <div class="extended-body">
+    <br><br><br><br>
   {% block body %}
 
   {% endblock %}
+  </div>
 
   <div class="row col-md-12 contact-screen" style="width: 100%; background-color: black;" id = "contact-screen">
     <h1 style="text-align: center; font-size: 64px; padding-bottom: 5%;">Contact Us</h1>
