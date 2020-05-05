@@ -419,5 +419,5 @@ def get_employee_portal():
     return render_template('employee_portal.html', user_id=user_id)
 
 if __name__ == '__main__':
-    # app.run(debug=True, host="192.168.0.106", port = "5000")
+    # app.run(debug=True, host="192.168.43.202", port = "5000")
     app.run(debug = True)
