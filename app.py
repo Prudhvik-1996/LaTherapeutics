@@ -420,4 +420,4 @@ def get_employee_portal():
 
 if __name__ == '__main__':
     # app.run(debug=True, host="192.168.43.202", port = "5000")
-    app.run(debug = True)
+    app.run(debug = True,  port = 8182, host="0.0.0.0")
