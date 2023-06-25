@@ -25,10 +25,13 @@ client = gspread.authorize(credentials)
 
 # Load the spreadsheet using the public link
 document_url = "https://docs.google.com/spreadsheets/d/12FlmNDxA3HD-EnBcjDA2Mbzjtl3YsG9mx-qT8g6C6Jc/edit?usp=sharing"
-client = gspread.open_by_url(document_url)
+
+# Open the spreadsheet by key
+spreadsheet_key = document_url.split("/")[5]
+spreadsheet = client.open_by_key(spreadsheet_key)
 
 # Access the Sheet1
-sheet = client.sheet1
+sheet = spreadsheet.sheet1
 
 # Get all values from Sheet1
 data = sheet.get_all_values()
