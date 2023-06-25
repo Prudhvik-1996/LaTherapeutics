@@ -24,8 +24,12 @@ scope = ['https://www.googleapis.com/auth/spreadsheets',
 credentials = ServiceAccountCredentials.from_json_keyfile_name("gs_credentials.json", scope)
 client = gspread.authorize(credentials)
 
+# Create a new DB
+sheet = client.create("NewDatabase")
+sheet.share('admin@epsiloninfinityservices.com', perm_type='user', role='writer')
+
 # Open the spreadsheet
-sheet = client.open("Copy of LA Products").sheet1
+sheet = client.open("NewDatabase").sheet1
 
 # read csv with pandas
 df = pd.read_csv('Sheet1')
