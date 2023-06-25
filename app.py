@@ -15,7 +15,6 @@ from email.mime.text import MIMEText
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-import pandas as pd
 
 # Connect to Google Sheets
 scope = ['https://www.googleapis.com/auth/spreadsheets',
@@ -32,9 +31,10 @@ sheet.share('admin@epsiloninfinityservices.com', perm_type='user', role='writer'
 sheet = client.open("NewDatabase").sheet1
 
 # read csv with pandas
-df = pd.read_csv('Sheet1')
+data = sheet.get_all_values()
 
-print(df)
+for row in data:
+    print(row)
 
 '''
 Google Sheets API
