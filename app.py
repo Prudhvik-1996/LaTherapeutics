@@ -30,25 +30,26 @@ document_url = "https://docs.google.com/spreadsheets/d/12FlmNDxA3HD-EnBcjDA2Mbzj
 spreadsheet_key = document_url.split("/")[5]
 spreadsheet = client.open_by_key(spreadsheet_key)
 
-# Access the Sheet1
-sheet = spreadsheet.sheet1
+def load_products():
+    # Access the Sheet1
+    sheet = spreadsheet.sheet1
 
-# Get all values from Sheet1
-data = sheet.get_all_values()
+    # Get all values from Sheet1
+    data = sheet.get_all_values()
 
-products = [list(product_details) for product_details in data]
-print(products)
+    products = [list(product_row) for product_row in data]
 
-result = []
-headers = products[0]
+    product_details_list = []
+    headers = products[0]
 
-for row in products[1:]:
-    json_obj = {}
-    for i, value in enumerate(row):
-        json_obj[headers[i]] = value
-    result.append(json_obj)
+    for row in products[1:]:
+        json_obj = {}
+        for i, value in enumerate(row):
+            json_obj[headers[i]] = value
+        product_details_list.append(json_obj)
 
-print(result)
+    print(product_details_list)
+    return product_details_list
 
 '''
 Google Sheets API
@@ -303,9 +304,8 @@ def homepage():
         print(name, email, phone, subject, message)
         return send_mail(message)
     else:
-        products_list = product_details.query.filter_by(
-            f_status="active").order_by("f_product_name").all()
-        return render_template('homepage.html', products=result)
+        products_list = load_products()
+        return render_template('homepage.html', products=products_list)
 
 
 @app.route('/stockiest_portal', methods=['GET'])
