@@ -305,7 +305,7 @@ def homepage():
     else:
         products_list = product_details.query.filter_by(
             f_status="active").order_by("f_product_name").all()
-        return render_template('homepage.html', products=products_list)
+        return render_template('homepage.html', products=result)
 
 
 @app.route('/stockiest_portal', methods=['GET'])
