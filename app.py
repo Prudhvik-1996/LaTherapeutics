@@ -36,9 +36,19 @@ sheet = spreadsheet.sheet1
 # Get all values from Sheet1
 data = sheet.get_all_values()
 
-# Display the data
-for row in data:
-    print(row)
+products = [list(product_details) for product_details in data]
+print(products)
+
+result = []
+headers = products[0]
+
+for row in products[1:]:
+    json_obj = {}
+    for i, value in enumerate(row):
+        json_obj[headers[i]] = value
+    result.append(json_obj)
+
+print(result)
 
 '''
 Google Sheets API
