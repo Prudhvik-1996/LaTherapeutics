@@ -13,6 +13,25 @@ import json
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+import pandas as pd
+
+# Connect to Google Sheets
+scope = ['https://www.googleapis.com/auth/spreadsheets',
+         "https://www.googleapis.com/auth/drive"]
+
+credentials = ServiceAccountCredentials.from_json_keyfile_name("gs_credentials.json", scope)
+client = gspread.authorize(credentials)
+
+# Open the spreadsheet
+sheet = client.open("Copy of LA Products").sheet1
+
+# read csv with pandas
+df = pd.read_csv('Sheet1')
+
+print(df)
+
 '''
 Google Sheets API
 
