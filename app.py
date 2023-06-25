@@ -23,16 +23,17 @@ scope = ['https://www.googleapis.com/auth/spreadsheets',
 credentials = ServiceAccountCredentials.from_json_keyfile_name("gs_credentials.json", scope)
 client = gspread.authorize(credentials)
 
-# Create a new DB
-sheet = client.create("NewDatabase")
-sheet.share('admin@epsiloninfinityservices.com', perm_type='user', role='writer')
+# Load the spreadsheet using the public link
+document_url = "https://docs.google.com/spreadsheets/d/12FlmNDxA3HD-EnBcjDA2Mbzjtl3YsG9mx-qT8g6C6Jc/edit?usp=sharing"
+client = gspread.open_by_url(document_url)
 
-# Open the spreadsheet
-sheet = client.open("NewDatabase").sheet1
+# Access the Sheet1
+sheet = client.sheet1
 
-# read csv with pandas
+# Get all values from Sheet1
 data = sheet.get_all_values()
 
+# Display the data
 for row in data:
     print(row)
 
