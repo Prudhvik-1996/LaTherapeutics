@@ -733,309 +733,523 @@
 
 <body onload="reload()">
 
-  <div id="maintainence_screen">
-    We are under maintaince and will be right back..
+  <div id="product_description" class="modal">
+    <div class="modal-content">
+      <div class="row product_name modal_title" id="modal_title">
+      </div>
+      <br><br>
+      <div class='row img_desc'>
+        <div class='col-md-5' id="product_img" style="border-right: 3px solid #B80000;" align="right">
+        </div>
+        <div class="col-md-7 product_composition" id="product_composition" align="middle">
+        </div>
+      </div>
+    </div>
   </div>
 
-<!--  <div id="product_description" class="modal">-->
-<!--    <div class="modal-content">-->
-<!--      <div class="row product_name modal_title" id="modal_title">-->
-<!--      </div>-->
-<!--      <br><br>-->
-<!--      <div class='row img_desc'>-->
-<!--        <div class='col-md-5' id="product_img" style="border-right: 3px solid #B80000;" align="right">-->
-<!--        </div>-->
-<!--        <div class="col-md-7 product_composition" id="product_composition" align="middle">-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
+  <nav class="navbar navbar-fixed-top" id = "nav">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".collapse">
+          <span class="glyphicon glyphicon-option-vertical"></span>
+        </button>
+        <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/LOGO_LA.PNG" height="50px" width="200px">
+      </div>
 
-<!--  <nav class="navbar navbar-fixed-top" id = "nav">-->
-<!--    <div class="container-fluid">-->
-<!--      <div class="navbar-header">-->
-<!--        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".collapse">-->
-<!--          <span class="glyphicon glyphicon-option-vertical"></span>-->
-<!--        </button>-->
-<!--        <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/LOGO_LA.PNG" height="50px" width="200px">-->
-<!--      </div>-->
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right" id = "nav-bar-right">
+          <li><a href="#intro-screen"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+          <li><a href="#about-screen"><span class="glyphicon glyphicon-user"></span> About</a></li>
+          <li><a href="#products-screen"><span class="glyphicon glyphicon-tasks"></span> Our Products</a></li>
+          <!-- <li><a href="contact.html"><span class="glyphicon glyphicon-user"></span> Employees Portal</a></li> -->
+          <li><a href="contact.html"><span class="glyphicon glyphicon-briefcase"></span> Stockiest Portal</a></li>
+          <li><a href="#contact-screen"><span class="glyphicon glyphicon-earphone"></span> Contact</a></li>
+          <li><a href="#contact-screen"><span class="glyphicon glyphicon-envelope"></span> Enquiry</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<!--      <div class="collapse navbar-collapse" id="myNavbar">-->
-<!--        <ul class="nav navbar-nav navbar-right" id = "nav-bar-right">-->
-<!--          <li><a href="#intro-screen"><span class="glyphicon glyphicon-home"></span> Home</a></li>-->
-<!--          <li><a href="#about-screen"><span class="glyphicon glyphicon-user"></span> About</a></li>-->
-<!--          <li><a href="#products-screen"><span class="glyphicon glyphicon-tasks"></span> Our Products</a></li>-->
-<!--          &lt;!&ndash; <li><a href="contact.html"><span class="glyphicon glyphicon-user"></span> Employees Portal</a></li> &ndash;&gt;-->
-<!--          <li><a href="contact.html"><span class="glyphicon glyphicon-briefcase"></span> Stockiest Portal</a></li>-->
-<!--          <li><a href="#contact-screen"><span class="glyphicon glyphicon-earphone"></span> Contact</a></li>-->
-<!--          <li><a href="#contact-screen"><span class="glyphicon glyphicon-envelope"></span> Enquiry</a></li>-->
-<!--        </ul>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </nav>-->
+  <br><br><br><br>
+  <div class="container intro-screen" style="width: 100%;" id = "intro-screen">
+    <!-- <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/1_MAIN_PAGE.jpg" style="width:80%;"> -->
+    <!-- <div class="top-right">
+      <p class="first-screen-title">
+        <b id = "L-in-la">L</b>ife is<br>
+        <b id = "A-in-la">A</b>ctive with<br>
+        <b id = "L-in-la">L</b><b id = "A-in-la">A</b> Therapeutics
+      </p>
+    </div> -->
+  </div>
 
-<!--  <br><br><br><br>-->
-<!--  <div class="container intro-screen" style="width: 100%;" id = "intro-screen">-->
-<!--    &lt;!&ndash; <img src="https://raw.githubusercontent.com/Prudhvik-1996/LaTherapeutics/master/images/1_MAIN_PAGE.jpg" style="width:80%;"> &ndash;&gt;-->
-<!--    &lt;!&ndash; <div class="top-right">-->
-<!--      <p class="first-screen-title">-->
-<!--        <b id = "L-in-la">L</b>ife is<br>-->
-<!--        <b id = "A-in-la">A</b>ctive with<br>-->
-<!--        <b id = "L-in-la">L</b><b id = "A-in-la">A</b> Therapeutics-->
-<!--      </p>-->
-<!--    </div> &ndash;&gt;-->
-<!--  </div>-->
+  <div class="row about-screen" style="width: 100%;" id = "about-screen">
+    <h1 style="text-align: center; font-size: 64px; padding-bottom: 5%;">About Us</h1>
+    <div class="row col-md-12 paragraph l-p">
+      Since 3 decades, Pharmaceutical industry has been growing rapidly.
+      We have witnessed the development of many new molecules that have cured several diseases and disorders. Inspite of these, there is always a continuous need for the evolution of new drugs in different specialities, as superspeciality medical knowledge is growing to give accurate treatment options to the needy.
+    </div>
+<<<<<<< HEAD
 
-<!--  <div class="row about-screen" style="width: 100%;" id = "about-screen">-->
-<!--    <h1 style="text-align: center; font-size: 64px; padding-bottom: 5%;">About Us</h1>-->
-<!--    <div class="row col-md-12 paragraph l-p">-->
-<!--      Since 3 decades, Pharmaceutical industry has been growing rapidly.-->
-<!--      We have witnessed the development of many new molecules that have cured several diseases and disorders. Inspite of these, there is always a continuous need for the evolution of new drugs in different specialities, as superspeciality medical knowledge is growing to give accurate treatment options to the needy.-->
-<!--    </div>-->
-<!--    -->
-<!--    <div class="row col-md-12 paragraph r-p">-->
-<!--      We, at LA Therapeutics belive that medicine is something which makes patient's Life Active.-->
-<!--      Our products are assured to give desired results to a doctor or a patient. Because, right from the selection of bulk drug, raw materials, active pharmacetial ingridents to a finished product including packing, storage, transportation etc., will go through a critical pipeline verification of WHO - GMP certifications, ISO certifications, state-of-the-art manufacturing plants with world class manufacturing techniques etc,.-->
-<!--    </div>-->
-<!--    -->
-<!--    <div class="row col-md-12 paragraph l-p">-->
-<!--      All our products meet the compositions specified by government authorities like DCGI in India and accordingly globally.-->
-<!--    </div>-->
+    <div class="row col-md-12 paragraph r-p">
+      We, at LA Therapeutics belive that medicine is something which makes patient's Life Active.
+      Our products are assured to give desired results to a doctor or a patient. Because, right from the selection of bulk drug, raw materials, active pharmacetial ingridents to a finished product including packing, storage, transportation etc., will go through a critical pipeline verification of WHO - GMP certifications, ISO certifications, state-of-the-art manufacturing plants with world class manufacturing techniques etc,.
+    </div>
 
-<!--    <div class="row col-md-12 paragraph r-p">-->
-<!--      We are originated in India and expanding our sales & services to global market as per the demand.-->
-<!--    </div>-->
+    <div class="row col-md-12 paragraph l-p">
+      All our products meet the compositions specified by government authorities like DCGI in India and accordingly globally.
+    </div>
 
-<!--    <div class="row col-md-12 paragraph l-p">-->
-<!--      We have presence in many theauraputic areas like pediatrics, geriatrics, gynocology, general medicine, orthopedic, dental, dermatology, gastroentrology and so on.-->
-<!--      Our product range includes tablets, capsules, softgels, injectables, liquids, suspensions, gels, topical oitments, drops and so on.-->
-<!--    </div>-->
+    <div class="row col-md-12 paragraph r-p">
+      We are originated in India and expanding our sales & services to global market as per the demand.
+    </div>
 
-<!--    <div class="row col-md-12 well well-margin">-->
-<!--      Since inception, we have been maintaining world class quality with a dedicated responsibility to make nation's life active.-->
-<!--      <br>-->
-<!--      We at LA Thearapeutics own it.-->
-<!--    </div>-->
+    <div class="row col-md-12 paragraph l-p">
+      We have presence in many theauraputic areas like pediatrics, geriatrics, gynocology, general medicine, orthopedic, dental, dermatology, gastroentrology and so on.
+      Our product range includes tablets, capsules, softgels, injectables, liquids, suspensions, gels, topical oitments, drops and so on.
+    </div>
 
-<!--    <div class="row col-md-12 paragraph r-p">-->
-<!--      Our stake holders and team members are striving hard to take our aims and goals of delivering the quality product to the needy across the country. A group of good product development team, strategic team, marketing team, HR management team, product partner team are our formula for success.-->
-<!--    </div>-->
-<!--  </div>-->
+    <div class="row col-md-12 well well-margin">
+      Since inception, we have been maintaining world class quality with a dedicated responsibility to make nation's life active.
+      <br>
+      We at LA Thearapeutics own it.
+    </div>
 
-<!--  <div class="row col-md-12 products-screen" style="width: 100%;" id = "products-screen" align="center">-->
-<!--    <h1 style="text-align: center; font-size: 64px; padding-bottom: 5%;">Our Products</h1>-->
-<!--    -->
-<!--    <div class="row col-md-12 products-row">-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('ABC_ZYME_DROPS')" onclick="open_product_description_modal('ABC_ZYME_DROPS')" id="ABC_ZYME_DROPS"><span>ABC ZYME <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>-->
-<!--      </div>-->
+    <div class="row col-md-12 paragraph r-p">
+      Our stake holders and team members are striving hard to take our aims and goals of delivering the quality product to the needy across the country. A group of good product development team, strategic team, marketing team, HR management team, product partner team are our formula for success.
+    </div>
+  </div>
 
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('AMNILARG')" onclick="open_product_description_modal('AMNILARG')" id="AMNILARG"><span>AMNILARG <span style="font-size: 18px; letter-spacing: normal;">Sachet</span></span></button>-->
-<!--      </div>-->
+  <div class="row col-md-12 products-screen" style="width: 100%;" id = "products-screen" align="center">
+    <h1 style="text-align: center; font-size: 64px; padding-bottom: 5%;">Our Products</h1>
 
-<!--    </div>-->
+    <div class="row col-md-12 products-row">
 
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('ABC_ZYME_DROPS')" onclick="open_product_description_modal('ABC_ZYME_DROPS')" id="ABC_ZYME_DROPS"><span>ABC ZYME <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>
+      </div>
 
-<!--    <div class="row col-md-12 products-row">-->
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('AMNILARG')" onclick="open_product_description_modal('AMNILARG')" id="AMNILARG"><span>AMNILARG <span style="font-size: 18px; letter-spacing: normal;">Sachet</span></span></button>
+      </div>
 
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('AMS_FAST_GEL')" onclick="open_product_description_modal('AMS_FAST_GEL')" id="AMS_FAST_GEL"><span>AMS FAST <span style="font-size: 18px; letter-spacing: normal;">GEL</span></span></button>-->
-<!--      </div>-->
+=======
+    
+    <div class="row col-md-12 paragraph r-p">
+      We, at LA Therapeutics belive that medicine is something which makes patient's Life Active.
+      Our products are assured to give desired results to a doctor or a patient. Because, right from the selection of bulk drug, raw materials, active pharmacetial ingridents to a finished product including packing, storage, transportation etc., will go through a critical pipeline verification of WHO - GMP certifications, ISO certifications, state-of-the-art manufacturing plants with world class manufacturing techniques etc,.
+    </div>
+    
+    <div class="row col-md-12 paragraph l-p">
+      All our products meet the compositions specified by government authorities like DCGI in India and accordingly globally.
+    </div>
 
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('AP_DOL')" onclick="open_product_description_modal('AP_DOL')" id="AP_DOL"><span>AP DOL <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>-->
-<!--      </div>-->
+    <div class="row col-md-12 paragraph r-p">
+      We are originated in India and expanding our sales & services to global market as per the demand.
+    </div>
 
-<!--    </div>-->
+    <div class="row col-md-12 paragraph l-p">
+      We have presence in many theauraputic areas like pediatrics, geriatrics, gynocology, general medicine, orthopedic, dental, dermatology, gastroentrology and so on.
+      Our product range includes tablets, capsules, softgels, injectables, liquids, suspensions, gels, topical oitments, drops and so on.
+    </div>
 
-<!--    <div class="row col-md-12 products-row">-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('CALCITRA_TAB')" onclick="open_product_description_modal('CALCITRA_TAB')" id="CALCITRA_TAB"><span>CALCITRA <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>-->
-<!--      </div>-->
+    <div class="row col-md-12 well well-margin">
+      Since inception, we have been maintaining world class quality with a dedicated responsibility to make nation's life active.
+      <br>
+      We at LA Thearapeutics own it.
+    </div>
 
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('DELCOLD_DROPS')" onclick="open_product_description_modal('DELCOLD_DROPS')" id="DELCOLD_DROPS"><span>DELCOLD <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>-->
-<!--      </div>-->
-<!--      -->
-<!--    </div>-->
+    <div class="row col-md-12 paragraph r-p">
+      Our stake holders and team members are striving hard to take our aims and goals of delivering the quality product to the needy across the country. A group of good product development team, strategic team, marketing team, HR management team, product partner team are our formula for success.
+    </div>
+  </div>
 
+  <div class="row col-md-12 products-screen" style="width: 100%;" id = "products-screen" align="center">
+    <h1 style="text-align: center; font-size: 64px; padding-bottom: 5%;">Our Products</h1>
+    
+    <div class="row col-md-12 products-row">
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('ABC_ZYME_DROPS')" onclick="open_product_description_modal('ABC_ZYME_DROPS')" id="ABC_ZYME_DROPS"><span>ABC ZYME <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>
+      </div>
 
-<!--    <div class="row col-md-12 products-row">-->
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('AMNILARG')" onclick="open_product_description_modal('AMNILARG')" id="AMNILARG"><span>AMNILARG <span style="font-size: 18px; letter-spacing: normal;">Sachet</span></span></button>
+      </div>
 
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('DELCOLD_SYRUP')" onclick="open_product_description_modal('DELCOLD_SYRUP')" id="DELCOLD_SYRUP"><span>DELCOLD <span style="font-size: 18px; letter-spacing: normal;">Syrup</span></span></button>-->
-<!--      </div>-->
-
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('DELCOLD_P_SUSP')" onclick="open_product_description_modal('DELCOLD_P_SUSP')" id="DELCOLD_P_SUSP"><span>DELCOLD-P <span style="font-size: 18px; letter-spacing: normal;">Susp</span></span></button>-->
-<!--      </div>-->
-<!--      -->
-<!--    </div>-->
-
-<!--    <div class="row col-md-12 products-row">-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('GPR_20')" onclick="open_product_description_modal('GPR_20')" id="GPR_20"><span>GPR 20 <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>-->
-<!--      </div>-->
-
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('GPR_DSR')" onclick="open_product_description_modal('GPR_DSR')" id="GPR_DSR"><span>GPR DSR <span style="font-size: 18px; letter-spacing: normal;">Capsules</span></span></button>-->
-<!--      </div>-->
-<!--      -->
-<!--    </div>-->
-
-<!--    <div class="row col-md-12 products-row">-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('LA_20_TABLETS')" onclick="open_product_description_modal('LA_20_TABLETS')" id="LA_20_TABLETS"><span>LA 20 <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>-->
-<!--      </div>-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('LA_FER_XT_DROPS')" onclick="open_product_description_modal('LA_FER_XT_DROPS')" id="LA_FER_XT_DROPS"><span>LA FER XT <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>-->
-<!--      </div>-->
-<!--      -->
-<!--    </div>-->
+>>>>>>> parent of d3f13ff (modified htmls for maintaince)
+    </div>
 
 
-<!--    <div class="row col-md-12 products-row">-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('LA_FER_XT_TABLETS')" onclick="open_product_description_modal('LA_FER_XT_TABLETS')" id="LA_FER_XT_TABLETS"><span>LA FER XT <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>-->
-<!--      </div>-->
+    <div class="row col-md-12 products-row">
 
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NEW_CET_M_SUSPENSION')" onclick="open_product_description_modal('NEW_CET_M_SUSPENSION')" id="NEW_CET_M_SUSPENSION"><span>NEW CET-M <span style="font-size: 18px; letter-spacing: normal;">Susp</span></span></button>-->
-<!--      </div>-->
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('AMS_FAST_GEL')" onclick="open_product_description_modal('AMS_FAST_GEL')" id="AMS_FAST_GEL"><span>AMS FAST <span style="font-size: 18px; letter-spacing: normal;">GEL</span></span></button>
+      </div>
 
-<!--    </div>-->
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('AP_DOL')" onclick="open_product_description_modal('AP_DOL')" id="AP_DOL"><span>AP DOL <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
 
+    </div>
 
-<!--    <div class="row col-md-12 products-row">-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NEW_CET_TABLETS')" onclick="open_product_description_modal('NEW_CET_TABLETS')" id="NEW_CET_TABLETS"><span>NEW CET M <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>-->
-<!--      </div>-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NIMDAY')" onclick="open_product_description_modal('NIMDAY')" id="NIMDAY"><span>NIMDAY <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>-->
-<!--      </div>-->
+    <div class="row col-md-12 products-row">
+<<<<<<< HEAD
 
-<!--    </div>-->
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('CALCITRA_TAB')" onclick="open_product_description_modal('CALCITRA_TAB')" id="CALCITRA_TAB"><span>CALCITRA <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
 
-<!--    <div class="row col-md-12 products-row">-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NUTRILA_DROPS')" onclick="open_product_description_modal('NUTRILA_DROPS')" id="NUTRILA_DROPS"><span>NUTRILA <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>-->
-<!--      </div>-->
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('DELCOLD_DROPS')" onclick="open_product_description_modal('DELCOLD_DROPS')" id="DELCOLD_DROPS"><span>DELCOLD <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>
+      </div>
 
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NUTRILA_MOM')" onclick="open_product_description_modal('NUTRILA_MOM')" id="NUTRILA_MOM"><span>NUTRILA MOM <span style="font-size: 18px; letter-spacing: normal;">Powder</span></span></button>-->
-<!--      </div>-->
-<!--      -->
-<!--    </div>-->
+=======
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('CALCITRA_TAB')" onclick="open_product_description_modal('CALCITRA_TAB')" id="CALCITRA_TAB"><span>CALCITRA <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
 
-
-<!--    <div class="row col-md-12 products-row">-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NUTRILA_TABLETS')" onclick="open_product_description_modal('NUTRILA_TABLETS')" id="NUTRILA_TABLETS"><span>NUTRILA <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>-->
-<!--      </div>-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('ONDA')" onclick="open_product_description_modal('ONDA')" id="ONDA"><span>ONDA 4mg <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>-->
-<!--      </div>-->
-
-<!--    </div>-->
-
-<!--    <div class="row col-md-12 products-row">-->
-
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('PF_650')" onclick="open_product_description_modal('PF_650')" id="PF_650"><span>PF 650mg <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>-->
-<!--      </div>-->
-
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('PROCORIL_LS_DROPS')" onclick="open_product_description_modal('PROCORIL_LS_DROPS')" id="PROCORIL_LS_DROPS"><span>PROCORIL-LS <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>-->
-<!--      </div>-->
-<!--      -->
-<!--    </div>-->
-
-<!--    <div class="row col-md-12 products-row">-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('PROCORIL_LS_SYP')" onclick="open_product_description_modal('PROCORIL_LS_SYP')" id="PROCORIL_LS_SYP"><span>PROCORIL-LS <span style="font-size: 18px; letter-spacing: normal;">Syrup</span></span></button>-->
-<!--      </div>-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('PROCORIL_SYP')" onclick="open_product_description_modal('PROCORIL_SYP')" id="PROCORIL_SYP"><span>PROCORIL <span style="font-size: 18px; letter-spacing: normal;">Syrup</span></span></button>-->
-<!--      </div>-->
-<!--      -->
-<!--    </div>-->
-
-<!--    <div class="row col-md-12 products-row">-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('QUADRIS_7')" onclick="open_product_description_modal('QUADRIS_7')" id="QUADRIS_7"><span>QUADRIS 7 <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>-->
-<!--      </div>-->
-
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('SUCRACID')" onclick="open_product_description_modal('SUCRACID')" id="SUCRACID"><span>SUCRACID <span style="font-size: 18px; letter-spacing: normal;">Susp</span></span></button>-->
-<!--      </div>-->
-
-<!--    </div>-->
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('DELCOLD_DROPS')" onclick="open_product_description_modal('DELCOLD_DROPS')" id="DELCOLD_DROPS"><span>DELCOLD <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>
+      </div>
+      
+>>>>>>> parent of d3f13ff (modified htmls for maintaince)
+    </div>
 
 
-<!--    <div class="row col-md-12 products-row">-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('SUCRACID_O')" onclick="open_product_description_modal('SUCRACID_O')" id="SUCRACID_O"><span>SUCRACID-O <span style="font-size: 18px; letter-spacing: normal;">Susp</span></span></button>-->
-<!--      </div>-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_100')" onclick="open_product_description_modal('THYROIN_100')" id="THYROIN_100"><span>THYROIN 100</span></button>-->
-<!--      </div>-->
+    <div class="row col-md-12 products-row">
 
-<!--    </div>-->
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('DELCOLD_SYRUP')" onclick="open_product_description_modal('DELCOLD_SYRUP')" id="DELCOLD_SYRUP"><span>DELCOLD <span style="font-size: 18px; letter-spacing: normal;">Syrup</span></span></button>
+      </div>
 
-<!--    <div class="row col-md-12 products-row">-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_12.5')" onclick="open_product_description_modal('THYROIN_12.5')" id="THYROIN_12.5"><span>THYROIN 12.5</span></button>-->
-<!--      </div>-->
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('DELCOLD_P_SUSP')" onclick="open_product_description_modal('DELCOLD_P_SUSP')" id="DELCOLD_P_SUSP"><span>DELCOLD-P <span style="font-size: 18px; letter-spacing: normal;">Susp</span></span></button>
+      </div>
+<<<<<<< HEAD
 
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_25')" onclick="open_product_description_modal('THYROIN_25')" id="THYROIN_25"><span>THYROIN 25</span></button>-->
-<!--      </div>-->
-<!--      -->
-<!--    </div>-->
+    </div>
 
-<!--    <div class="row col-md-12 products-row">-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_50')" onclick="open_product_description_modal('THYROIN_50')" id="THYROIN_50"><span>THYROIN 50</span></button>-->
-<!--      </div>-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_75')" onclick="open_product_description_modal('THYROIN_75')" id="THYROIN_75"><span>THYROIN 75</span></button>-->
-<!--      </div>-->
+    <div class="row col-md-12 products-row">
 
-<!--    </div>-->
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('GPR_20')" onclick="open_product_description_modal('GPR_20')" id="GPR_20"><span>GPR 20 <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
 
-<!--    <div class="row col-md-12 products-row">-->
-<!--      -->
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('VMIN_400')" onclick="open_product_description_modal('VMIN_400')" id="VMIN_400"><span>Vmin D3 400 <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>-->
-<!--      </div>-->
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('GPR_DSR')" onclick="open_product_description_modal('GPR_DSR')" id="GPR_DSR"><span>GPR DSR <span style="font-size: 18px; letter-spacing: normal;">Capsules</span></span></button>
+      </div>
 
-<!--      <div class="col-md-6">-->
-<!--        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('VMIN_800')" onclick="open_product_description_modal('VMIN_800')" id="VMIN_800"><span>Vmin D3 800 <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>-->
-<!--      </div>-->
-<!--      -->
-<!--    </div>-->
-<!--    <br><br><br><br>-->
-<!--  </div>-->
+    </div>
+
+    <div class="row col-md-12 products-row">
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('LA_20_TABLETS')" onclick="open_product_description_modal('LA_20_TABLETS')" id="LA_20_TABLETS"><span>LA 20 <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('LA_FER_XT_DROPS')" onclick="open_product_description_modal('LA_FER_XT_DROPS')" id="LA_FER_XT_DROPS"><span>LA FER XT <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>
+      </div>
+
+=======
+      
+    </div>
+
+    <div class="row col-md-12 products-row">
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('GPR_20')" onclick="open_product_description_modal('GPR_20')" id="GPR_20"><span>GPR 20 <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('GPR_DSR')" onclick="open_product_description_modal('GPR_DSR')" id="GPR_DSR"><span>GPR DSR <span style="font-size: 18px; letter-spacing: normal;">Capsules</span></span></button>
+      </div>
+      
+    </div>
+
+    <div class="row col-md-12 products-row">
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('LA_20_TABLETS')" onclick="open_product_description_modal('LA_20_TABLETS')" id="LA_20_TABLETS"><span>LA 20 <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('LA_FER_XT_DROPS')" onclick="open_product_description_modal('LA_FER_XT_DROPS')" id="LA_FER_XT_DROPS"><span>LA FER XT <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>
+      </div>
+      
+>>>>>>> parent of d3f13ff (modified htmls for maintaince)
+    </div>
+
+
+    <div class="row col-md-12 products-row">
+<<<<<<< HEAD
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('LA_FER_XT_TABLETS')" onclick="open_product_description_modal('LA_FER_XT_TABLETS')" id="LA_FER_XT_TABLETS"><span>LA FER XT <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NEW_CET_M_SUSPENSION')" onclick="open_product_description_modal('NEW_CET_M_SUSPENSION')" id="NEW_CET_M_SUSPENSION"><span>NEW CET-M <span style="font-size: 18px; letter-spacing: normal;">Susp</span></span></button>
+      </div>
+
+=======
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('LA_FER_XT_TABLETS')" onclick="open_product_description_modal('LA_FER_XT_TABLETS')" id="LA_FER_XT_TABLETS"><span>LA FER XT <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NEW_CET_M_SUSPENSION')" onclick="open_product_description_modal('NEW_CET_M_SUSPENSION')" id="NEW_CET_M_SUSPENSION"><span>NEW CET-M <span style="font-size: 18px; letter-spacing: normal;">Susp</span></span></button>
+      </div>
+
+>>>>>>> parent of d3f13ff (modified htmls for maintaince)
+    </div>
+
+
+    <div class="row col-md-12 products-row">
+<<<<<<< HEAD
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NEW_CET_TABLETS')" onclick="open_product_description_modal('NEW_CET_TABLETS')" id="NEW_CET_TABLETS"><span>NEW CET M <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NIMDAY')" onclick="open_product_description_modal('NIMDAY')" id="NIMDAY"><span>NIMDAY <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
+
+    </div>
+
+    <div class="row col-md-12 products-row">
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NUTRILA_DROPS')" onclick="open_product_description_modal('NUTRILA_DROPS')" id="NUTRILA_DROPS"><span>NUTRILA <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NUTRILA_MOM')" onclick="open_product_description_modal('NUTRILA_MOM')" id="NUTRILA_MOM"><span>NUTRILA MOM <span style="font-size: 18px; letter-spacing: normal;">Powder</span></span></button>
+      </div>
+
+=======
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NEW_CET_TABLETS')" onclick="open_product_description_modal('NEW_CET_TABLETS')" id="NEW_CET_TABLETS"><span>NEW CET M <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NIMDAY')" onclick="open_product_description_modal('NIMDAY')" id="NIMDAY"><span>NIMDAY <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
+
+    </div>
+
+    <div class="row col-md-12 products-row">
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NUTRILA_DROPS')" onclick="open_product_description_modal('NUTRILA_DROPS')" id="NUTRILA_DROPS"><span>NUTRILA <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NUTRILA_MOM')" onclick="open_product_description_modal('NUTRILA_MOM')" id="NUTRILA_MOM"><span>NUTRILA MOM <span style="font-size: 18px; letter-spacing: normal;">Powder</span></span></button>
+      </div>
+      
+>>>>>>> parent of d3f13ff (modified htmls for maintaince)
+    </div>
+
+
+    <div class="row col-md-12 products-row">
+<<<<<<< HEAD
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NUTRILA_TABLETS')" onclick="open_product_description_modal('NUTRILA_TABLETS')" id="NUTRILA_TABLETS"><span>NUTRILA <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('ONDA')" onclick="open_product_description_modal('ONDA')" id="ONDA"><span>ONDA 4mg <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
+
+    </div>
+
+    <div class="row col-md-12 products-row">
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('PF_650')" onclick="open_product_description_modal('PF_650')" id="PF_650"><span>PF 650mg <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('PROCORIL_LS_DROPS')" onclick="open_product_description_modal('PROCORIL_LS_DROPS')" id="PROCORIL_LS_DROPS"><span>PROCORIL-LS <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>
+      </div>
+
+    </div>
+
+    <div class="row col-md-12 products-row">
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('PROCORIL_LS_SYP')" onclick="open_product_description_modal('PROCORIL_LS_SYP')" id="PROCORIL_LS_SYP"><span>PROCORIL-LS <span style="font-size: 18px; letter-spacing: normal;">Syrup</span></span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('PROCORIL_SYP')" onclick="open_product_description_modal('PROCORIL_SYP')" id="PROCORIL_SYP"><span>PROCORIL <span style="font-size: 18px; letter-spacing: normal;">Syrup</span></span></button>
+      </div>
+
+    </div>
+
+    <div class="row col-md-12 products-row">
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('QUADRIS_7')" onclick="open_product_description_modal('QUADRIS_7')" id="QUADRIS_7"><span>QUADRIS 7 <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('SUCRACID')" onclick="open_product_description_modal('SUCRACID')" id="SUCRACID"><span>SUCRACID <span style="font-size: 18px; letter-spacing: normal;">Susp</span></span></button>
+      </div>
+
+=======
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('NUTRILA_TABLETS')" onclick="open_product_description_modal('NUTRILA_TABLETS')" id="NUTRILA_TABLETS"><span>NUTRILA <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('ONDA')" onclick="open_product_description_modal('ONDA')" id="ONDA"><span>ONDA 4mg <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
+
+    </div>
+
+    <div class="row col-md-12 products-row">
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('PF_650')" onclick="open_product_description_modal('PF_650')" id="PF_650"><span>PF 650mg <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('PROCORIL_LS_DROPS')" onclick="open_product_description_modal('PROCORIL_LS_DROPS')" id="PROCORIL_LS_DROPS"><span>PROCORIL-LS <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>
+      </div>
+      
+    </div>
+
+    <div class="row col-md-12 products-row">
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('PROCORIL_LS_SYP')" onclick="open_product_description_modal('PROCORIL_LS_SYP')" id="PROCORIL_LS_SYP"><span>PROCORIL-LS <span style="font-size: 18px; letter-spacing: normal;">Syrup</span></span></button>
+      </div>
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('PROCORIL_SYP')" onclick="open_product_description_modal('PROCORIL_SYP')" id="PROCORIL_SYP"><span>PROCORIL <span style="font-size: 18px; letter-spacing: normal;">Syrup</span></span></button>
+      </div>
+      
+    </div>
+
+    <div class="row col-md-12 products-row">
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('QUADRIS_7')" onclick="open_product_description_modal('QUADRIS_7')" id="QUADRIS_7"><span>QUADRIS 7 <span style="font-size: 18px; letter-spacing: normal;">Tablets</span></span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('SUCRACID')" onclick="open_product_description_modal('SUCRACID')" id="SUCRACID"><span>SUCRACID <span style="font-size: 18px; letter-spacing: normal;">Susp</span></span></button>
+      </div>
+
+>>>>>>> parent of d3f13ff (modified htmls for maintaince)
+    </div>
+
+
+    <div class="row col-md-12 products-row">
+<<<<<<< HEAD
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('SUCRACID_O')" onclick="open_product_description_modal('SUCRACID_O')" id="SUCRACID_O"><span>SUCRACID-O <span style="font-size: 18px; letter-spacing: normal;">Susp</span></span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_100')" onclick="open_product_description_modal('THYROIN_100')" id="THYROIN_100"><span>THYROIN 100</span></button>
+      </div>
+
+    </div>
+
+    <div class="row col-md-12 products-row">
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_12.5')" onclick="open_product_description_modal('THYROIN_12.5')" id="THYROIN_12.5"><span>THYROIN 12.5</span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_25')" onclick="open_product_description_modal('THYROIN_25')" id="THYROIN_25"><span>THYROIN 25</span></button>
+      </div>
+
+    </div>
+
+    <div class="row col-md-12 products-row">
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_50')" onclick="open_product_description_modal('THYROIN_50')" id="THYROIN_50"><span>THYROIN 50</span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_75')" onclick="open_product_description_modal('THYROIN_75')" id="THYROIN_75"><span>THYROIN 75</span></button>
+      </div>
+
+    </div>
+
+    <div class="row col-md-12 products-row">
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('VMIN_400')" onclick="open_product_description_modal('VMIN_400')" id="VMIN_400"><span>Vmin D3 400 <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('VMIN_800')" onclick="open_product_description_modal('VMIN_800')" id="VMIN_800"><span>Vmin D3 800 <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>
+      </div>
+
+=======
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('SUCRACID_O')" onclick="open_product_description_modal('SUCRACID_O')" id="SUCRACID_O"><span>SUCRACID-O <span style="font-size: 18px; letter-spacing: normal;">Susp</span></span></button>
+      </div>
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_100')" onclick="open_product_description_modal('THYROIN_100')" id="THYROIN_100"><span>THYROIN 100</span></button>
+      </div>
+
+    </div>
+
+    <div class="row col-md-12 products-row">
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_12.5')" onclick="open_product_description_modal('THYROIN_12.5')" id="THYROIN_12.5"><span>THYROIN 12.5</span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_25')" onclick="open_product_description_modal('THYROIN_25')" id="THYROIN_25"><span>THYROIN 25</span></button>
+      </div>
+      
+    </div>
+
+    <div class="row col-md-12 products-row">
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_50')" onclick="open_product_description_modal('THYROIN_50')" id="THYROIN_50"><span>THYROIN 50</span></button>
+      </div>
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('THYROIN_75')" onclick="open_product_description_modal('THYROIN_75')" id="THYROIN_75"><span>THYROIN 75</span></button>
+      </div>
+
+    </div>
+
+    <div class="row col-md-12 products-row">
+      
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('VMIN_400')" onclick="open_product_description_modal('VMIN_400')" id="VMIN_400"><span>Vmin D3 400 <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>
+      </div>
+
+      <div class="col-md-6">
+        <button class="btn btn-info btn-lg product_btn" onmouseover="open_product_description_modal('VMIN_800')" onclick="open_product_description_modal('VMIN_800')" id="VMIN_800"><span>Vmin D3 800 <span style="font-size: 18px; letter-spacing: normal;">Drops</span></span></button>
+      </div>
+      
+>>>>>>> parent of d3f13ff (modified htmls for maintaince)
+    </div>
+    <br><br><br><br>
+  </div>
 
   <div class="row col-md-12 contact-screen" style="width: 100%; background-color: black;" id = "contact-screen">
     <h1 style="text-align: center; font-size: 64px; padding-bottom: 5%;">Contact Us</h1>
